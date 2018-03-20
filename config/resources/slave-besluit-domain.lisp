@@ -9,14 +9,14 @@
                              :as "bestuursorgaan")
              (bestuurseenheid-classificatie-code :via ,(s-prefix "besluit:classificatie")
                                                  :as "classificatie"))
-  :resource-base (s-url "https://data.lblod.info/id/bestuurseenheden/")
+  :resource-base (s-url "http://data.lblod.info/id/bestuurseenheden/")
   :features '(include-uri)
   :on-path "bestuurseenheden")
 
 (define-resource bestuurseenheid-classificatie-code ()
   :class (s-prefix "ext:BestuurseenheidClassificatieCode")
   :properties `((:label :string ,(s-prefix "skos:prefLabel")))
-  :resource-base (s-url "https://data.lblod.info/id/bestuurseenheid-classificatie-codes/")
+  :resource-base (s-url "http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/")
   :features '(include-uri)
   :on-path "bestuurseenheid-classificatie-codes")
 
@@ -40,13 +40,13 @@
               (mandaat :via ,(s-prefix "org:hasPost")
                        :as "bevat"))
 
-  :resource-base (s-url "https://data.lblod.info/id/bestuursorganen/")
+  :resource-base (s-url "http://data.lblod.info/id/bestuursorganen/")
   :features '(include-uri)
   :on-path "bestuursorganen")
 
 (define-resource bestuursorgaan-classificatie-code ()
   :class (s-prefix "ext:BestuursorgaanClassificatieCode")
   :properties `((:label :string ,(s-prefix "skos:prefLabel")))
-  :resource-base (s-url "https://data.lblod.info/id/bestuursorgaan-classificatie-codes/")
+  :resource-base (s-url "http://data.vlaanderen.be/id/concept/BestuursorgaanClassificatieCode/")
   :features '(include-uri)
   :on-path "bestuursorgaan-classificatie-codes")
