@@ -22,9 +22,9 @@
   :on-path "geboortes")
 
 (define-resource lijsttype ()
-  :class (s-prefix "mandaat:Lijsttype")
+  :class (s-prefix "ext:KandidatenlijstType")
   :properties `((:label :string ,(s-prefix "skos:prefLabel")))
-  :resource-base (s-url "https://data.lblod.info/id/lijsttypes/")
+  :resource-base (s-url "https://data.vlaanderen.be/id/concept/KandidatenlijstType/")
   :features '(include-uri)
   :on-path "lijsttypes")
 
