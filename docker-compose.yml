@@ -36,6 +36,8 @@ services:
       - ./config/filehost:/etc/nginx/conf.d
   export:
     image: lblod/mandaten-download-generator-service:0.1.0
+    environment:
+      EXPORT_CRON_PATTERN: "0 0 0 * * *"
     volumes:
       - ./data/exports:/data/exports
       - ./config/export:/config
