@@ -22,3 +22,6 @@
 (add-prefix "foaf" "http://xmlns.com/foaf/0.1/")
 (add-prefix "nao" "http://www.semanticdesktop.org/ontologies/2007/08/15/nao#")
 (add-prefix "pav" "http://purl.org/pav/")
+(add-prefix "nfo" "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#")
+
+(add-prefix "export" "http://mu.semte.ch/vocabularies/ext/export/")

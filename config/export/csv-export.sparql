@@ -1,0 +1,68 @@
+PREFIX mandaat: <http://data.vlaanderen.be/ns/mandaat#>
+PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
+PREFIX persoon: <http://data.vlaanderen.be/ns/persoon#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ext: <http://mu.semte.ch/vocabularies/ext/>
+PREFIX regorg: <https://www.w3.org/ns/regorg#>
+
+SELECT ?s AS ?mandataris ?start ?eind ?rangorde ?status ?persoon ?voornaam ?achternaam ?roepnaam ?mandaat ?bestuursfunctie ?bestuursfunctieLabel ?bestuursorgaan ?bestuursorgaanLabel ?bestuursorgaanClassificatie ?bestuursorgaanClassificatieLabel ?bestuurseenheidLabel ?bestuurseenheidClassificatie ?bestuurseenheidClassificatieLabel ?werkingsgebied ?werkingsgebiedLabel ?werkingsgebiedNiveau ?fractie ?fractieNaam ?beleidsdomein ?beleidsdomeinLabel FROM <http://mu.semte.ch/application> WHERE {
+  ?s a mandaat:Mandataris .
+
+  OPTIONAL { ?s mandaat:start ?start . }
+  OPTIONAL { ?s mandaat:einde ?eind . }
+  OPTIONAL { ?s mandaat:rangorde ?rangorde . }
+  OPTIONAL { ?s mandaat:status ?status . }
+
+  OPTIONAL {
+    ?s mandaat:isBestuurlijkeAliasVan ?persoon .
+    OPTIONAL { ?persoon foaf:familyName ?achternaam . }
+    OPTIONAL { ?persoon persoon:gebruikteVoornaam ?voornaam . }
+    OPTIONAL { ?persoon foaf:name ?roepnaam . }
+  }
+
+  OPTIONAL {
+    ?s org:holds ?mandaat .
+    OPTIONAL { 
+      ?mandaat org:role ?bestuursfunctie .
+      OPTIONAL { ?bestuursfunctie skos:prefLabel ?bestuursfunctieLabel . }
+    }
+
+    OPTIONAL { 
+      ?mandaat ^org:hasPost/mandaat:isTijdsspecialisatieVan ?bestuursorgaan .
+      OPTIONAL { ?bestuursorgaan skos:prefLabel ?bestuursorgaanLabel . }
+      OPTIONAL { 
+        ?bestuursorgaan besluit:classificatie ?bestuursorgaanClassificatie . 
+        OPTIONAL { ?bestuursorgaanClassificatie skos:prefLabel ?bestuursorgaanClassificatieLabel }
+      }
+
+      OPTIONAL { 
+        ?bestuursorgaan besluit:bestuurt ?bestuurseenheid .
+        OPTIONAL { ?bestuurseenheid skos:prefLabel ?bestuurseenheidLabel . }
+        OPTIONAL {
+          ?bestuurseenheid besluit:classificatie ?bestuurseenheidClassificatie .
+          OPTIONAL { ?bestuurseenheidClassificatie skos:prefLabel ?bestuurseenheidClassificatieLabel . }
+        }
+        OPTIONAL {
+          ?bestuurseenheid besluit:werkingsgebied ?werkingsgebied .
+          OPTIONAL { ?werkingsgebied rdfs:label ?werkingsgebiedLabel . }
+          OPTIONAL { ?werkingsgebied ext:werkingsgebiedNiveau ?werkingsgebiedNiveau . }          
+        }
+      }
+    }
+  }
+
+  OPTIONAL {
+    ?s org:hasMembership/org:organisation ?fractie .
+    OPTIONAL { ?fractie regorg:legalName ?fractieNaam . }
+  }
+
+  OPTIONAL {
+    ?s mandaat:beleidsdomein ?beleidsdomein .
+    OPTIONAL { ?beleidsdomein skos:prefLabel ?beleidsdomeinLabel . }
+  }
+
+}
+
