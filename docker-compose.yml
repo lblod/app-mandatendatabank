@@ -25,6 +25,10 @@ services:
     image: semtech/mu-migrations-service:0.3.0
     volumes:
       - ./config/migrations:/data/migrations
+  cache:
+    image: semtech/mu-cache:0.5.0
+    environment:
+      CACHE_BACKEND: http://resource/    
   resource:
     image: semtech/mu-cl-resources:1.16.0
     volumes:
