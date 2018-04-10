@@ -122,7 +122,8 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://filehost/"
   end
   get "/exports/*path" do
-    Proxy.forward conn, path, "http://cache/exports/"
+    # we bypass the cache on purpose since mu-cl-resources is not the master of the exports
+    Proxy.forward conn, path, "http://resource/exports/"
   end
 
   
