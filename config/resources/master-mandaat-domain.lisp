@@ -23,7 +23,8 @@
 
 (define-resource lijsttype ()
   :class (s-prefix "ext:KandidatenlijstType")
-  :properties `((:label :string ,(s-prefix "skos:prefLabel")))
+  :properties `((:label :string ,(s-prefix "skos:prefLabel"))
+                (:scope-note :string ,(s-prefix "skos:scopeNote")))
   :resource-base (s-url "http://data.vlaanderen.be/id/concept/KandidatenlijstType/")
   :features '(include-uri)
   :on-path "lijsttypes")
@@ -69,7 +70,8 @@
 
 (define-resource bestuursfunctie-code ()
   :class (s-prefix "ext:BestuursfunctieCode")
-  :properties `((:label :string ,(s-prefix "skos:prefLabel")))
+  :properties `((:label :string ,(s-prefix "skos:prefLabel"))
+                (:scope-note :string ,(s-prefix "skos:scopeNote")))
   :resource-base (s-url "http://data.vlaanderen.be/id/concept/BestuursfunctieCode/")
   :features '(include-uri)
   :on-path "bestuursfunctie-codes")
@@ -101,17 +103,19 @@
 
 (define-resource mandataris-status-code ()
   :class (s-prefix "ext:MandatarisStatusCode")
-  :properties `((:label :string ,(s-prefix "skos:prefLabel")))
+  :properties `((:label :string ,(s-prefix "skos:prefLabel"))
+                (:scope-note :string ,(s-prefix "skos:scopeNote")))
   :resource-base (s-url "http://data.vlaanderen.be/id/concept/MandatarisStatusCode/")
   :features '(include-uri)
   :on-path "mandataris-status-codes")
 
 (define-resource beleidsdomein-code ()
   :class (s-prefix "ext:BeleidsdomeinCode")
+  :properties `((:label :string ,(s-prefix "skos:prefLabel"))
+                (:scope-note :string ,(s-prefix "skos:scopeNote")))
   :has-many `((mandataris :via ,(s-prefix "mandaat:beleidsdomein")
                           :inverse t
                           :as "mandatarissen"))
-  :properties `((:label :string ,(s-prefix "skos:prefLabel")))
   :resource-base (s-url "http://data.vlaanderen.be/id/concept/BeleidsdomeinCode/")
   :features '(include-uri)
   :on-path "beleidsdomein-codes")
@@ -139,7 +143,8 @@
 
 (define-resource geslacht-code ()
   :class (s-prefix "ext:GeslachtCode")
-  :properties `((:label :string ,(s-prefix "skos:prefLabel")))
+  :properties `((:label :string ,(s-prefix "skos:prefLabel"))
+                (:scope-note :string ,(s-prefix "skos:scopeNote")))
   :resource-base (s-url "http://data.vlaanderen.be/id/concept/GeslachtCode/")
   :features '(include-uri)
   :on-path "geslacht-codes")
@@ -149,6 +154,16 @@
   :resource-base (s-url "http://data.lblod.info/id/identificatoren/")
   :features '(include-uri)
   :on-path "identificatoren")
+
+(define-resource rechtsgrond ()
+  :class (s-prefix "eli:LegalResource")
+  :properties `((:buitenwerkingtreding :date ,(s-prefix "eli:date_no_longer_in_force"))
+                (:inwekingtreding :date ,(s-prefix "eli:first_date_entry_in_force"))
+                (:type-document :uri-set ,(s-prefix "eli:type_document"))) ;;TODO: what about predefined lists?
+  :resource-base (s-url "https://data.lblod.info/id/rechtsgronden/")
+  :features '(include-uri)
+  :on-path "rechtsgronden")
+
 
 (define-resource rechtsgrond-aanstelling ()
   :class (s-prefix "mandaat:RechtsgrondAanstelling")
@@ -221,7 +236,8 @@
 
 (define-resource verkiezingsresultaat-gevolg-code ()
   :class (s-prefix "ext:VerkiezingsresultaatGevolgCode")
-  :properties `((:label :string ,(s-prefix "skos:prefLabel")))
+  :properties `((:label :string ,(s-prefix "skos:prefLabel"))
+                (:scope-note :string ,(s-prefix "skos:scopeNote")))
   :resource-base (s-url "http://data.vlaanderen.be/id/concept/VerkiezingsresultaatGevolgCode/")
   :features '(include-uri)
   :on-path "verkiezingsresultaat-gevolg-codes")

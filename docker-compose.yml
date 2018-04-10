@@ -5,7 +5,7 @@ services:
     links:
       - identifier:backend
   admin:
-    image: lblod/frontend-mandatendatabank-admin
+    image: lblod/frontend-mandatendatabank-admin:0.1.0
     links:
       - identifier:backend
   identifier:

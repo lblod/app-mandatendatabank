@@ -6,6 +6,7 @@
    of responses in the result object's meta.")
 
 (read-domain-file "master-mandaat-domain.lisp")
+(read-domain-file "master-organisatie-domain.lisp")
 (read-domain-file "slave-besluit-domain.lisp")
 
 (define-resource export ()

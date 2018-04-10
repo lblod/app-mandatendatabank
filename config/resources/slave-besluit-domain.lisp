@@ -9,10 +9,19 @@
                              :inverse t
                              :as "bestuursorgaan")
              (bestuurseenheid-classificatie-code :via ,(s-prefix "besluit:classificatie")
-                                                 :as "classificatie"))
+                                                 :as "classificatie")
+             (vestiging :via ,(s-prefix "org:hasPrimarySite")
+                        :as "primaire-site")
+             (organisatie :via ,(s-prefix "org:linkedTo")
+                          :as "politiezone"))
+  :has-many `((contact-punt :via ,(s-prefix "schema:contactPoint")
+                            :as "contactinfo")
+              (positie :via ,(s-prefix "org:heldBy")
+                       :as "posities"))
   :resource-base (s-url "http://data.lblod.info/id/bestuurseenheden/")
   :features '(include-uri)
-  :on-path "bestuurseenheden")
+  :on-path "bestuurseenheden"
+)
 
 (define-resource werkingsgebied ()
   :class (s-prefix "prov:Location")
@@ -28,7 +37,8 @@
 
 (define-resource bestuurseenheid-classificatie-code ()
   :class (s-prefix "ext:BestuurseenheidClassificatieCode")
-  :properties `((:label :string ,(s-prefix "skos:prefLabel")))
+  :properties `((:label :string ,(s-prefix "skos:prefLabel"))
+                (:scope-note :string ,(s-prefix "skos:scopeNote")))
   :resource-base (s-url "http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/")
   :features '(include-uri)
   :on-path "bestuurseenheid-classificatie-codes")
@@ -59,7 +69,8 @@
 
 (define-resource bestuursorgaan-classificatie-code ()
   :class (s-prefix "ext:BestuursorgaanClassificatieCode")
-  :properties `((:label :string ,(s-prefix "skos:prefLabel")))
+  :properties `((:label :string ,(s-prefix "skos:prefLabel"))
+                (:scope-note :string ,(s-prefix "skos:scopeNote")))
   :resource-base (s-url "http://data.vlaanderen.be/id/concept/BestuursorgaanClassificatieCode/")
   :features '(include-uri)
   :on-path "bestuursorgaan-classificatie-codes")
