@@ -1,9 +1,5 @@
 version: '3.4'
 services:
-  loket:
-    image: lblod/frontend-loket
-    links:
-      - identifier:backend
   mandaten:
     image: lblod/frontend-mandatendatabank:0.1.0
     links:
