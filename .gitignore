@@ -10,6 +10,7 @@
 /data/db/virtuoso.trx
 /data/exports/*
 !/data/db/virtuoso.ini
+!/data/db/toLoad
 
 .DS_Store
 *~
