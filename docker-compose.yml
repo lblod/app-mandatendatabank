@@ -1,7 +1,7 @@
 version: '3.4'
 services:
   mandaten:
-    image: lblod/frontend-mandatendatabank:0.2.0
+    image: lblod/frontend-mandatendatabank:0.2.1
     links:
       - identifier:backend
   identifier:
