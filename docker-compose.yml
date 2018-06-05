@@ -99,10 +99,24 @@ services:
       options:
         max-size: "10m"
         max-file: "3"
+  import:
+    image: lblod/mandaten-import-service:0.1.0
+    volumes:
+      - ./data/imports:/data/imports # map to actual directory on your system
+    restart: always
+    labels:
+      - "logging=true"
+    environment:
+      CRON_PATTERN: "0 5 * * *"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
   export:
     image: lblod/mandaten-download-generator-service:0.1.4
     environment:
-      EXPORT_CRON_PATTERN: "0 0 0 * * *"
+      EXPORT_CRON_PATTERN: "0 0 6 * * *"
     volumes:
       - ./data/exports:/data/exports
       - ./config/export:/config
