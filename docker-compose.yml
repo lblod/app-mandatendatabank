@@ -85,7 +85,7 @@ services:
       CRON_PATTERN: "0 5 * * *"
     logging: *default-logging
   export:
-    image: lblod/mandaten-download-generator-service:0.1.4
+    image: lblod/mandaten-download-generator-service:0.2.1
     environment:
       EXPORT_CRON_PATTERN: "0 0 6 * * *"
     volumes:
