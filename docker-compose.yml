@@ -58,7 +58,7 @@ services:
       - "logging=true"
     logging: *default-logging
   resource:
-    image: semtech/mu-cl-resources:1.16.0
+    image: semtech/mu-cl-resources:1.17.0
     volumes:
       - ./config/resources:/config
     restart: always
@@ -66,7 +66,7 @@ services:
       - "logging=true"
     logging: *default-logging
   filehost:
-    image: nginx:1.13
+    image: nginx:1.15
     volumes:
       - ./data/exports:/data/exports
       - ./config/filehost:/etc/nginx/conf.d
