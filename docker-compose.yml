@@ -9,7 +9,7 @@ x-logging:
 
 services:
   mandaten:
-    image: lblod/frontend-mandatendatabank:0.5.1
+    image: lblod/frontend-mandatendatabank:0.6.0
     links:
       - identifier:backend
     restart: always
@@ -42,7 +42,7 @@ services:
       - "logging=true"
     logging: *default-logging
   migrations:
-    image: semtech/mu-migrations-service:0.3.0
+    image: semtech/mu-migrations-service:0.3.1
     volumes:
       - ./config/migrations:/data/migrations
     restart: always
@@ -66,7 +66,7 @@ services:
       - "logging=true"
     logging: *default-logging
   filehost:
-    image: nginx:1.15
+    image: nginx:1.15.2
     volumes:
       - ./data/exports:/data/exports
       - ./config/filehost:/etc/nginx/conf.d
@@ -78,14 +78,14 @@ services:
     image: lblod/mandaten-import-service:0.1.1
     volumes:
       - ./data/imports:/data/imports # map to actual directory on your system
+    environment:
+      CRON_PATTERN: "0 5 * * *"
     restart: always
     labels:
       - "logging=true"
-    environment:
-      CRON_PATTERN: "0 5 * * *"
     logging: *default-logging
   export:
-    image: lblod/mandaten-download-generator-service:0.2.1
+    image: lblod/mandaten-download-generator-service:0.3.0
     environment:
       EXPORT_CRON_PATTERN: "0 0 6 * * *"
     volumes:
