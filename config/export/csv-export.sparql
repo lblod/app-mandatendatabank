@@ -25,20 +25,21 @@ SELECT ?s AS ?mandataris ?start ?eind ?rangorde ?status ?persoon ?voornaam ?acht
 
   OPTIONAL {
     ?s org:holds ?mandaat .
-    OPTIONAL { 
+    OPTIONAL {
       ?mandaat org:role ?bestuursfunctie .
       OPTIONAL { ?bestuursfunctie skos:prefLabel ?bestuursfunctieLabel . }
     }
 
-    OPTIONAL { 
-      ?mandaat ^org:hasPost/mandaat:isTijdsspecialisatieVan ?bestuursorgaan .
+    OPTIONAL {
+      ?mandaat ^org:hasPost ?bestuursorgaanInTijd .
+      ?bestuursorgaanInTijd mandaat:isTijdspecialisatieVan ?bestuursorgaan .
       OPTIONAL { ?bestuursorgaan skos:prefLabel ?bestuursorgaanLabel . }
-      OPTIONAL { 
-        ?bestuursorgaan besluit:classificatie ?bestuursorgaanClassificatie . 
+      OPTIONAL {
+        ?bestuursorgaan besluit:classificatie ?bestuursorgaanClassificatie .
         OPTIONAL { ?bestuursorgaanClassificatie skos:prefLabel ?bestuursorgaanClassificatieLabel }
       }
 
-      OPTIONAL { 
+      OPTIONAL {
         ?bestuursorgaan besluit:bestuurt ?bestuurseenheid .
         OPTIONAL { ?bestuurseenheid skos:prefLabel ?bestuurseenheidLabel . }
         OPTIONAL {
@@ -48,7 +49,7 @@ SELECT ?s AS ?mandataris ?start ?eind ?rangorde ?status ?persoon ?voornaam ?acht
         OPTIONAL {
           ?bestuurseenheid besluit:werkingsgebied ?werkingsgebied .
           OPTIONAL { ?werkingsgebied rdfs:label ?werkingsgebiedLabel . }
-          OPTIONAL { ?werkingsgebied ext:werkingsgebiedNiveau ?werkingsgebiedNiveau . }          
+          OPTIONAL { ?werkingsgebied ext:werkingsgebiedNiveau ?werkingsgebiedNiveau . }
         }
       }
     }
@@ -65,4 +66,3 @@ SELECT ?s AS ?mandataris ?start ?eind ?rangorde ?status ?persoon ?voornaam ?acht
   }
 
 }
-

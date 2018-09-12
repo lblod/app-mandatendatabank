@@ -47,7 +47,7 @@
       "optionalProperties": [
         "mandaat:bindingEinde",
         "mandaat:bindingStart",
-        "mandaat:isTijdsspecialisatieVan"
+        "mandaat:isTijdspecialisatieVan"
       ],
       "additionalFilter": ""
     },
@@ -87,7 +87,7 @@
         "mandaat:bindingStart",
         "besluit:bestuurt",
         "besluit:classificatie",
-        "mandaat:isTijdsspecialisatieVan",
+        "mandaat:isTijdspecialisatieVan",
         "org:hasPost"
       ],
       "additionalFilter": ""
