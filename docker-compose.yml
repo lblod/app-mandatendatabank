@@ -9,7 +9,7 @@ x-logging:
 
 services:
   mandaten:
-    image: lblod/frontend-mandatendatabank:0.8.2
+    image: lblod/frontend-mandatendatabank:0.8.3
     links:
       - identifier:backend
     restart: always
