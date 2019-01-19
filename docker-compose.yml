@@ -75,7 +75,7 @@ services:
       - "logging=true"
     logging: *default-logging
   import:
-    image: lblod/mandaten-import-service:0.1.1
+    image: lblod/mandaten-import-service:0.3.0
     volumes:
       - ./data/imports:/data/imports # map to actual directory on your system
     environment:
