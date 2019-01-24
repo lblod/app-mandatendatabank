@@ -75,7 +75,7 @@ services:
       - "logging=true"
     logging: *default-logging
   import:
-    image: lblod/mandaten-import-service:0.1.1
+    image: lblod/mandaten-import-service:0.3.0
     volumes:
       - ./data/imports:/data/imports # map to actual directory on your system
     environment:
@@ -85,7 +85,7 @@ services:
       - "logging=true"
     logging: *default-logging
   export:
-    image: lblod/mandaten-download-generator-service:0.3.0
+    image: lblod/mandaten-download-generator-service:0.3.3
     environment:
       EXPORT_CRON_PATTERN: "0 0 6 * * *"
     volumes:
