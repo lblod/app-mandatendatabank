@@ -9,7 +9,7 @@ x-logging:
 
 services:
   mandaten:
-    image: lblod/frontend-mandatendatabank:0.10.1
+    image: lblod/frontend-mandatendatabank:0.10.2
     links:
       - identifier:backend
     restart: always
@@ -17,7 +17,10 @@ services:
       - "logging=true"
     logging: *default-logging
   identifier:
-    image: semtech/mu-identifier:1.5.0
+  identifier:
+    image: semtech/mu-identifier:1.6.1
+    environment:
+      DEFAULT_ACCESS_CONTROL_ALLOW_ORIGIN_HEADER: "*"
     restart: always
     labels:
       - "logging=true"
