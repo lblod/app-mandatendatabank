@@ -8,13 +8,16 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX ext: <http://mu.semte.ch/vocabularies/ext/>
 PREFIX regorg: <https://www.w3.org/ns/regorg#>
 
-SELECT ?s AS ?mandataris ?start ?eind ?rangorde ?status ?persoon ?voornaam ?achternaam ?roepnaam ?mandaat ?bestuursfunctie ?bestuursfunctieLabel ?bestuursorgaan ?bestuursorgaanLabel ?bestuursorgaanClassificatie ?bestuursorgaanClassificatieLabel ?bestuurseenheidLabel ?bestuurseenheidClassificatie ?bestuurseenheidClassificatieLabel ?werkingsgebied ?werkingsgebiedLabel ?werkingsgebiedNiveau ?fractie ?fractieNaam ?beleidsdomein ?beleidsdomeinLabel FROM <http://mu.semte.ch/application> WHERE {
+SELECT ?s AS ?mandataris ?start ?eind ?rangorde ?status ?statusLabel ?persoon ?voornaam ?achternaam ?roepnaam ?mandaat ?bestuursfunctie ?bestuursfunctieLabel ?bestuursorgaan ?bestuursorgaanLabel ?bestuursorgaanClassificatie ?bestuursorgaanClassificatieLabel ?bestuurseenheidLabel ?bestuurseenheidClassificatie ?bestuurseenheidClassificatieLabel ?werkingsgebied ?werkingsgebiedLabel ?werkingsgebiedNiveau ?fractie ?fractieNaam ?beleidsdomein ?beleidsdomeinLabel FROM <http://mu.semte.ch/application> WHERE {
   ?s a mandaat:Mandataris .
 
   OPTIONAL { ?s mandaat:start ?start . }
   OPTIONAL { ?s mandaat:einde ?eind . }
   OPTIONAL { ?s mandaat:rangorde ?rangorde . }
-  OPTIONAL { ?s mandaat:status ?status . }
+  OPTIONAL {
+    ?s mandaat:status ?status .
+    ?status skos:prefLabel ?statusLabel .
+  }
 
   OPTIONAL {
     ?s mandaat:isBestuurlijkeAliasVan ?persoon .
