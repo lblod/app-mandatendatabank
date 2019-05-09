@@ -12,29 +12,11 @@ SELECT ?s AS ?mandataris ?start ?eind ?rangorde ?status ?statusLabel ?persoon ?v
   ?s a mandaat:Mandataris .
 
   OPTIONAL {
-    ?s mandaat:start ?unformattedStart .
-    BIND(IF(STRLEN(STR(?unformattedStart)) > 0,
-      CONCAT(
-        STR(YEAR(?unformattedStart)), "/",
-        STR(MONTH(?unformattedStart)), "/",
-        STR(DAY(?unformattedStart)), " ",
-        IF(HOURS(?unformattedStart) < 10, "0", ""), STR(HOURS(?unformattedStart)), ":",
-        IF(MINUTES(?unformattedStart) < 10, "0", ""), STR(MINUTES(?unformattedStart)), ":",
-        IF(SECONDS(?unformattedStart) < 10, "0", ""), STR(SECONDS(?unformattedStart)
-      )), "") as ?start) .
+    ?s mandaat:start ?start .
   }
 
   OPTIONAL {
-    ?s mandaat:einde ?unformattedEind .
-    BIND(IF(STRLEN(STR(?unformattedEind)) > 0,
-      CONCAT(
-        STR(YEAR(?unformattedEind)), "/",
-        STR(MONTH(?unformattedEind)), "/",
-        STR(DAY(?unformattedEind)), " ",
-        IF(HOURS(?unformattedEind) < 10, "0", ""), STR(HOURS(?unformattedEind)), ":",
-        IF(MINUTES(?unformattedEind) < 10, "0", ""), STR(MINUTES(?unformattedEind)), ":",
-        IF(SECONDS(?unformattedEind) < 10, "0", ""), STR(SECONDS(?unformattedEind)
-      )), "") as ?eind) .
+    ?s mandaat:einde ?eind .
   }
 
   OPTIONAL { ?s mandaat:rangorde ?rangorde . }
