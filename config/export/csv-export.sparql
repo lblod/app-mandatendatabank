@@ -11,8 +11,19 @@ PREFIX regorg: <https://www.w3.org/ns/regorg#>
 SELECT ?s AS ?mandataris ?start ?eind ?rangorde ?status ?statusLabel ?persoon ?voornaam ?achternaam ?roepnaam ?mandaat ?bestuursfunctie ?bestuursfunctieLabel ?bestuursorgaan ?bestuursorgaanLabel ?bestuursorgaanClassificatie ?bestuursorgaanClassificatieLabel ?bestuurseenheidLabel ?bestuurseenheidClassificatie ?bestuurseenheidClassificatieLabel ?werkingsgebied ?werkingsgebiedLabel ?werkingsgebiedNiveau ?fractie ?fractieNaam ?beleidsdomein ?beleidsdomeinLabel FROM <http://mu.semte.ch/application> WHERE {
   ?s a mandaat:Mandataris .
 
-  OPTIONAL { ?s mandaat:start ?start . }
-  OPTIONAL { ?s mandaat:einde ?eind . }
+  OPTIONAL {
+    ?s mandaat:start ?unformattedStart .
+  }
+  FILTER(BOUND(?unformattedStart)) .
+  BIND(CONCAT(STR(YEAR(?unformattedStart)), "/", STR(MONTH(?unformattedStart)), "/", STR(DAY(?unformattedStart)), " ", STR(HOURS(?unformattedStart)), ":", STR(MINUTES(?unformattedStart)), ":",STR(SECONDS(?unformattedStart))) as ?start) .
+
+  OPTIONAL {
+    ?s mandaat:einde ?unformattedEind .
+  }
+  FILTER(BOUND(?unformattedEind)) .
+  BIND(CONCAT(STR(YEAR(?unformattedEind)), "/", STR(MONTH(?unformattedEind)), "/", STR(DAY(?unformattedEind)), " ", STR(HOURS(?unformattedEind)), ":", STR(MINUTES(?unformattedEind)), ":",STR(SECONDS(?unformattedEind))) as ?eind) .
+
+
   OPTIONAL { ?s mandaat:rangorde ?rangorde . }
   OPTIONAL {
     ?s mandaat:status ?status .
