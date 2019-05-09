@@ -16,8 +16,8 @@ SELECT ?s AS ?mandataris ?start ?eind ?rangorde ?status ?statusLabel ?persoon ?v
     BIND(IF(STRLEN(STR(?unformattedStart)) > 0,
       CONCAT(
         STR(YEAR(?unformattedStart)), "/",
-        IF(MONTH(?unformattedStart) < 10, "0", ""), STR(MONTH(?unformattedStart)), "/",
-        IF(DAY(?unformattedStart) < 10, "0", ""), STR(DAY(?unformattedStart)), " ",
+        STR(MONTH(?unformattedStart)), "/",
+        STR(DAY(?unformattedStart)), " ",
         IF(HOURS(?unformattedStart) < 10, "0", ""), STR(HOURS(?unformattedStart)), ":",
         IF(MINUTES(?unformattedStart) < 10, "0", ""), STR(MINUTES(?unformattedStart)), ":",
         IF(SECONDS(?unformattedStart) < 10, "0", ""), STR(SECONDS(?unformattedStart)
@@ -29,8 +29,8 @@ SELECT ?s AS ?mandataris ?start ?eind ?rangorde ?status ?statusLabel ?persoon ?v
     BIND(IF(STRLEN(STR(?unformattedEind)) > 0,
       CONCAT(
         STR(YEAR(?unformattedEind)), "/",
-        IF(MONTH(?unformattedEind) < 10, "0", ""), STR(MONTH(?unformattedEind)), "/",
-        IF(DAY(?unformattedEind) < 10, "0", ""), STR(DAY(?unformattedEind)), " ",
+        STR(MONTH(?unformattedEind)), "/",
+        STR(DAY(?unformattedEind)), " ",
         IF(HOURS(?unformattedEind) < 10, "0", ""), STR(HOURS(?unformattedEind)), ":",
         IF(MINUTES(?unformattedEind) < 10, "0", ""), STR(MINUTES(?unformattedEind)), ":",
         IF(SECONDS(?unformattedEind) < 10, "0", ""), STR(SECONDS(?unformattedEind)
