@@ -17,7 +17,6 @@ services:
       - "logging=true"
     logging: *default-logging
   identifier:
-  identifier:
     image: semtech/mu-identifier:1.6.1
     environment:
       DEFAULT_ACCESS_CONTROL_ALLOW_ORIGIN_HEADER: "*"
