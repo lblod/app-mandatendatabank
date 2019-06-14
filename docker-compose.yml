@@ -52,7 +52,7 @@ services:
       - "logging=true"
     logging: *default-logging
   cache:
-    image: semtech/mu-cache:0.6.0
+    image: semtech/mu-cache:2.0.0
     links:
       - resource:backend
     restart: always
