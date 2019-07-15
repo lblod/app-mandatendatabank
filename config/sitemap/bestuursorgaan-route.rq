@@ -1,0 +1,10 @@
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
+
+SELECT ?url
+WHERE {
+  GRAPH ?g {
+    ?bestuursorgaan a besluit:Bestuursorgaan ; mu:uuid ?uuid .
+    BIND(CONCAT("https://mandaten.lokaalbestuur.vlaanderen.be/bestuursorgaan/", STR( ?uuid )) AS ?url ) .
+  }
+}

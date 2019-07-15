@@ -132,7 +132,9 @@ defmodule Dispatcher do
     # we bypass the cache on purpose since mu-cl-resources is not the master of the exports
     Proxy.forward conn, path, "http://resource/exports/"
   end
-
+  get "/sitemap.xml" do
+    Proxy.forward conn, [], "http://sitemap/sitemap.xml"
+  end
 
   match _ do
     send_resp( conn, 404, "Route not found.  See config/dispatcher.ex" )

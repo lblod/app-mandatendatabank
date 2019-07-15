@@ -1,0 +1,10 @@
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+PREFIX person: <http://www.w3.org/ns/person#>
+
+SELECT ?url
+WHERE {
+  GRAPH ?g {
+    ?persoon a person:Person ; mu:uuid ?uuid .
+    BIND(CONCAT("https://mandaten.lokaalbestuur.vlaanderen.be/persoon/", STR( ?uuid )) AS ?url ) .
+  }
+}

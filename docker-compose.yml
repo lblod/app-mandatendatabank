@@ -97,4 +97,16 @@ services:
     labels:
       - "logging=true"
     logging: *default-logging
-
+  sitemap:
+    image: lblod/sitemap-service:0.2.1
+    volumes:
+      - ./config/sitemap/:/config/
+      - ./data/sitemap/:/data/
+    environment:
+      SITEMAP_MAX_AGE: 5
+    links:
+      - database:database
+    restart: always
+    labels:
+      - "logging=true"
+    logging: *default-logging

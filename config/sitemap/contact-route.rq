@@ -1,0 +1,9 @@
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
+
+SELECT ?url
+WHERE {
+  GRAPH ?g {
+    VALUES ?url { <https://mandaten.lokaalbestuur.vlaanderen.be/contact> }
+  }
+}
