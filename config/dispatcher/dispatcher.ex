@@ -41,9 +41,6 @@ defmodule Dispatcher do
   match "/bestuursorgaan-classificatie-codes/*path" do
     Proxy.forward conn, path, "http://cache/bestuursorgaan-classificatie-codes/"
   end
-  match "/entiteiten/*path" do
-    Proxy.forward conn, path, "http://cache/entiteiten/"
-  end
   match "/fracties/*path" do
     Proxy.forward conn, path, "http://cache/fracties/"
   end
@@ -109,21 +106,6 @@ defmodule Dispatcher do
   end
   match "/verkiezingsresultaat-gevolg-codes/*path" do
     Proxy.forward conn, path, "http://cache/verkiezingsresultaat-gevolg-codes/"
-  end
-  match "/vestigingen/*path" do
-    Proxy.forward conn, path, "http://cache/vestigingen/"
-  end
-  match "/contact-punten/*path" do
-    Proxy.forward conn, path, "http://cache/contact-punten/"
-  end
-  match "/posities/*path" do
-    Proxy.forward conn, path, "http://cache/posities/"
-  end
-  match "/rollen/*path" do
-    Proxy.forward conn, path, "http://cache/rollen/"
-  end
-  match "/organisaties/*path" do
-    Proxy.forward conn, path, "http://cache/organisaties/"
   end
   match "/files/*path" do
     Proxy.forward conn, path, "http://filehost/"
