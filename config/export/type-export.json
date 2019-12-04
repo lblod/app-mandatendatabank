@@ -12,7 +12,8 @@
     "person": "http://www.w3.org/ns/person#",
     "schema": "http://schema.org/",
     "prov": "http://www.w3.org/ns/prov#",
-    "adms": "https://www.w3.org/ns/adms#"
+    "adms": "https://www.w3.org/ns/adms#",
+    "owl": "http://www.w3.org/2002/07/owl#"
   },
   "types": [
     {
@@ -38,7 +39,8 @@
         "foaf:name",
         "persoon:heeftGeboorte",
         "adms:identifier",
-        "persoon:geslacht"
+        "persoon:geslacht",
+        "owl:sameAs"
       ],
       "additionalFilter": ""
     },
@@ -95,7 +97,8 @@
     {
       "type": "persoon:Geboorte",
       "optionalProperties": [
-        "persoon:datum"
+        "persoon:datum",
+        "owl:sameAs"
       ],
       "additionalFilter": ""
     },
