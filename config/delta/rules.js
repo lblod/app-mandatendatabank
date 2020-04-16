@@ -2,7 +2,7 @@ export default [
   {
     match: {
       // form of element is {subject,predicate,object}
-      // predicate: { type: "uri", value: "http://www.semanticdesktop.org/ontologies/2007/03/22/nmo#isPartOf" }
+      // predicate: { type: "uri", value: "http://data.vlaanderen.be/ns/mandaat#einde" }
     },
     callback: {
       url: "http://resource/.mu/delta", method: "POST"
