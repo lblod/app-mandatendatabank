@@ -9,6 +9,7 @@
 /data/db/virtuoso.pxa
 /data/db/virtuoso.trx
 /data/exports/*
+/data/imports/*
 /data/sitemap/*
 !/data/db/virtuoso.ini
 !/data/db/toLoad
@@ -18,3 +19,4 @@
 *~
 
 docker-compose.override.yml
+.log/
