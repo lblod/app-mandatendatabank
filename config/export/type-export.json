@@ -7,7 +7,6 @@
     "org": "http://www.w3.org/ns/org#",
     "skos": "http://www.w3.org/2004/02/skos/core#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-    "ext": "http://mu.semte.ch/vocabularies/ext/",
     "regorg": "https://www.w3.org/ns/regorg#",
     "person": "http://www.w3.org/ns/person#",
     "schema": "http://schema.org/",
@@ -39,7 +38,6 @@
         "foaf:name",
         "persoon:heeftGeboorte",
         "adms:identifier",
-        "persoon:geslacht",
         "owl:sameAs"
       ],
       "additionalFilter": ""
@@ -70,14 +68,6 @@
         "org:linkedTo",
         "schema:contactPoint",
         "org:heldBy"
-      ],
-      "additionalFilter": ""
-    },
-    {
-      "type": "prov:Location",
-      "optionalProperties": [
-        "rdfs:label",
-        "ext:werkingsgebiedNiveau"
       ],
       "additionalFilter": ""
     },
@@ -119,52 +109,12 @@
       "additionalFilter": ""
     },
     {
-      "type": "ext:BestuursfunctieCode",
+      "type": "skos:Concept",
       "optionalProperties": [
         "skos:prefLabel",
         "skos:scopeNote"
       ],
       "additionalFilter": ""
-    },
-    {
-      "type": "ext:MandatarisStatusCode",
-      "optionalProperties": [
-        "skos:prefLabel",
-        "skos:scopeNote"
-      ],
-      "additionalFilter": ""
-    },
-    {
-      "type": "ext:BeleidsdomeinCode",
-      "optionalProperties": [
-        "skos:prefLabel",
-        "skos:scopeNote"
-      ],
-      "additionalFilter": ""
-    },
-    {
-      "type": "ext:GeslachtCode",
-      "optionalProperties": [
-        "skos:prefLabel",
-        "skos:scopeNote"
-      ],
-      "additionalFilter": ""
-    },
-    {
-      "type": "ext:BestuurseenheidClassificatieCode",
-      "optionalProperties": [
-        "skos:prefLabel",
-        "skos:scopeNote"
-      ],
-      "additionalFilter": ""
-    },
-    {
-      "type": "ext:BestuursorgaanClassificatieCode",
-      "optionalProperties": [
-        "skos:prefLabel",
-        "skos:scopeNote"
-      ],
-      "additionalFilter": ""
-    }    
+    }
   ]
 }
