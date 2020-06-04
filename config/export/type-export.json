@@ -43,14 +43,6 @@
       "additionalFilter": ""
     },
     {
-      "type": "person:Person",
-      "optionalProperties": [
-        "persoon:heeftGeboorte",
-        "persoon:geslacht"
-      ],
-      "additionalFilter": "          ?resource ^mandaat:isBestuurlijkeAliasVan ?mandataris .\n          ?mandataris mandaat:start ?start .\n          ?mandataris mandaat:einde ?einde .\n          FILTER(?start > \"2012-01-01T00:00:00\"^^xsd:dateTime)          FILTER(?einde < \"2019-01-01T00:00:00\"^^xsd:dateTime)"
-    },
-    {
       "type": "mandaat:TijdsgebondenEntiteit",
       "optionalProperties": [
         "mandaat:bindingEinde",
@@ -91,14 +83,6 @@
         "org:hasPost"
       ],
       "additionalFilter": ""
-    },
-    {
-      "type": "persoon:Geboorte",
-      "optionalProperties": [
-        "persoon:datum",
-        "owl:sameAs"
-      ],
-      "additionalFilter": "          ?resource ^persoon:heeftGeboorte ?person .\n          ?person  ^mandaat:isBestuurlijkeAliasVan ?mandataris .\n          ?mandataris mandaat:start ?start .\n          ?mandataris mandaat:einde ?einde .\n          FILTER(?start > \"2012-01-01T00:00:00\"^^xsd:dateTime)          FILTER(?einde < \"2019-01-01T00:00:00\"^^xsd:dateTime)"
     },
     {
       "type": "org:Membership",
