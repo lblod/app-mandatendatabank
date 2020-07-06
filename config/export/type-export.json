@@ -37,9 +37,7 @@
         "foaf:familyName",
         "persoon:gebruikteVoornaam",
         "foaf:name",
-        "persoon:heeftGeboorte",
         "adms:identifier",
-        "persoon:geslacht",
         "owl:sameAs"
       ],
       "additionalFilter": ""
@@ -74,14 +72,6 @@
       "additionalFilter": ""
     },
     {
-      "type": "prov:Location",
-      "optionalProperties": [
-        "rdfs:label",
-        "ext:werkingsgebiedNiveau"
-      ],
-      "additionalFilter": ""
-    },
-    {
       "type": "besluit:Bestuursorgaan",
       "optionalProperties": [
         "skos:prefLabel",
@@ -91,14 +81,6 @@
         "besluit:classificatie",
         "mandaat:isTijdspecialisatieVan",
         "org:hasPost"
-      ],
-      "additionalFilter": ""
-    },
-    {
-      "type": "persoon:Geboorte",
-      "optionalProperties": [
-        "persoon:datum",
-        "owl:sameAs"
       ],
       "additionalFilter": ""
     },
@@ -119,52 +101,19 @@
       "additionalFilter": ""
     },
     {
-      "type": "ext:BestuursfunctieCode",
+      "type": "prov:Location",
       "optionalProperties": [
-        "skos:prefLabel",
-        "skos:scopeNote"
+        "rdfs:label"
       ],
       "additionalFilter": ""
     },
     {
-      "type": "ext:MandatarisStatusCode",
+      "type": "skos:Concept",
       "optionalProperties": [
         "skos:prefLabel",
         "skos:scopeNote"
       ],
       "additionalFilter": ""
-    },
-    {
-      "type": "ext:BeleidsdomeinCode",
-      "optionalProperties": [
-        "skos:prefLabel",
-        "skos:scopeNote"
-      ],
-      "additionalFilter": ""
-    },
-    {
-      "type": "ext:GeslachtCode",
-      "optionalProperties": [
-        "skos:prefLabel",
-        "skos:scopeNote"
-      ],
-      "additionalFilter": ""
-    },
-    {
-      "type": "ext:BestuurseenheidClassificatieCode",
-      "optionalProperties": [
-        "skos:prefLabel",
-        "skos:scopeNote"
-      ],
-      "additionalFilter": ""
-    },
-    {
-      "type": "ext:BestuursorgaanClassificatieCode",
-      "optionalProperties": [
-        "skos:prefLabel",
-        "skos:scopeNote"
-      ],
-      "additionalFilter": ""
-    }    
+    }
   ]
 }
