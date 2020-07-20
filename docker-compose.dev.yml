@@ -1,12 +1,34 @@
 version: '3.4'
 services:
+  mandaten:
+    restart: "no"
   identifier:
     ports:
       - "80:80"
     restart: "no"
+  dispatcher:
+    restart: "no"
   database:
+    restart: "no"
+  delta-notifier:
     restart: "no"
   virtuoso:
     ports:
       - "8890:8890"
+    restart: "no"
+  migrations:
+    restart: "no"
+  cache:
+    restart: "no"
+  resource:
+    restart: "no"
+  filehost:
+    restart: "no"
+  import:
+    restart: "no"
+  export:
+    restart: "no"
+  sitemap:
+    restart: "no"
+  mandatendatabank-consumer:
     restart: "no"
