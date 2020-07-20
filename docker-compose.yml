@@ -96,18 +96,6 @@ services:
     labels:
       - "logging=true"
     logging: *default-logging
-  import:
-    image: lblod/mandaten-import-service:0.3.1
-    links:
-      - virtuoso:database
-    volumes:
-      - ./data/imports:/data/imports # map to actual directory on your system
-    environment:
-      CRON_PATTERN: "0 5 * * *"
-    restart: always
-    labels:
-      - "logging=true"
-    logging: *default-logging
   export:
     image: lblod/mandaten-download-generator-service:0.3.3
     environment:
@@ -132,3 +120,8 @@ services:
     labels:
       - "logging=true"
     logging: *default-logging
+  mandatendatabank-consumer:
+    image: lblod/mandatendatabank-consumer:0.1.0
+    environment:
+      SYNC_BASE_URL: 'https://loket.lblod.info' # replace with link to Loket API
+      MU_APPLICATION_GRAPH: 'http://mu.semte.ch/application'
