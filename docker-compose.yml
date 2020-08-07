@@ -125,3 +125,7 @@ services:
     environment:
       SYNC_BASE_URL: 'https://loket.lblod.info' # replace with link to Loket API
       MU_APPLICATION_GRAPH: 'http://mu.semte.ch/application'
+    restart: always
+    labels:
+      - "logging=true"
+    logging: *default-logging
