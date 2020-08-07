@@ -121,7 +121,7 @@ services:
       - "logging=true"
     logging: *default-logging
   mandatendatabank-consumer:
-    image: lblod/mandatendatabank-consumer:0.1.3
+    image: lblod/mandatendatabank-consumer:0.1.4
     environment:
       SYNC_BASE_URL: 'https://loket.lblod.info' # replace with link to Loket API
       MU_APPLICATION_GRAPH: 'http://mu.semte.ch/application'
