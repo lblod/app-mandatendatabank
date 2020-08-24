@@ -26,3 +26,4 @@
 (add-prefix "schema" "http://schema.org/")
 (add-prefix "export" "http://mu.semte.ch/vocabularies/ext/export/")
 (add-prefix "lblodlg" "http://data.lblod.info/vocabularies/leidinggevenden/")
+(add-prefix "sign" "http://mu.semte.ch/vocabularies/ext/signing/")
