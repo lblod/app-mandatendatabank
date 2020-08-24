@@ -97,7 +97,7 @@ services:
       - "logging=true"
     logging: *default-logging
   export:
-    image: lblod/mandaten-download-generator-service:0.3.5
+    image: lblod/mandaten-download-generator-service:0.3.6
     environment:
       EXPORT_CRON_PATTERN: "0 0 6 * * *"
     volumes:
