@@ -24,8 +24,6 @@ services:
     restart: "no"
   filehost:
     restart: "no"
-  import:
-    restart: "no"
   export:
     restart: "no"
   sitemap:

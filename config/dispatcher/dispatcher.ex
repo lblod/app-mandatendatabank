@@ -117,7 +117,9 @@ defmodule Dispatcher do
   get "/sitemap.xml" do
     Proxy.forward conn, [], "http://sitemap/sitemap.xml"
   end
-
+  get "/sync/mandatarissen/files/*path" do
+    Proxy.forward conn, path, "http://mandatarissen-producer/files/"
+  end
   match _ do
     send_resp( conn, 404, "Route not found.  See config/dispatcher.ex" )
   end

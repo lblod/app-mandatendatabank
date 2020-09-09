@@ -131,3 +131,7 @@ services:
     labels:
       - "logging=true"
     logging: *default-logging
+  mandatarissen-producer:
+    image: lblod/mandatendatabank-mandatarissen-producer:0.1.0
+    volumes:
+      - ./data/files:/share

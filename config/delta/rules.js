@@ -12,5 +12,19 @@ export default [
       gracePeriod: 1000,
       ignoreFromSelf: true
     }
+  },
+  {
+    match: {
+      // anything
+    },
+    callback: {
+      url: 'http://mandatarissen-producer/delta',
+      method: 'POST'
+    },
+    options: {
+      resourceFormat: 'v0.0.1',
+      gracePeriod: 1000,
+      ignoreFromSelf: true
+    }
   }
 ];
