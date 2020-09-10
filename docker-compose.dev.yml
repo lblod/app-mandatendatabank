@@ -28,5 +28,9 @@ services:
     restart: "no"
   sitemap:
     restart: "no"
+  file:
+    restart: "no"
   mandatendatabank-consumer:
+    restart: "no"
+  mandatarissen-producer:
     restart: "no"

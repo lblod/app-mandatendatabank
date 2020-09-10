@@ -117,9 +117,29 @@ defmodule Dispatcher do
   get "/sitemap.xml" do
     Proxy.forward conn, [], "http://sitemap/sitemap.xml"
   end
+
+  ###############################################################
+  # files
+  ###############################################################
+  get "/files/:id/download" do
+    Proxy.forward conn, [], "http://file/files/" <> id <> "/download"
+  end
+  get "/files/*path" do
+    Proxy.forward conn, path, "http://resource/files/"
+  end
+  patch "/files/*path" do
+    Proxy.forward conn, path, "http://resource/files/"
+  end
+  post "/file-service/files/*path" do
+    Proxy.forward conn, path, "http://file/files/"
+  end
+  delete "/files/*path" do
+    Proxy.forward conn, path, "http://file/files/"
+  end
   get "/sync/mandatarissen/files/*path" do
     Proxy.forward conn, path, "http://mandatarissen-producer/files/"
   end
+
   match _ do
     send_resp( conn, 404, "Route not found.  See config/dispatcher.ex" )
   end

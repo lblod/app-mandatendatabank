@@ -122,6 +122,14 @@ services:
     labels:
       - "logging=true"
     logging: *default-logging
+  file:
+    image: semtech/mu-file-service:3.1.1
+    volumes:
+      - ./data/files:/share
+    restart: always
+    labels:
+      - "logging=true"
+    logging: *default-logging
   mandatendatabank-consumer:
     image: lblod/mandatendatabank-consumer:0.1.4
     environment:
@@ -132,6 +140,10 @@ services:
       - "logging=true"
     logging: *default-logging
   mandatarissen-producer:
-    image: lblod/mandatendatabank-mandatarissen-producer:0.1.0
+    image: lblod/mandatendatabank-mandatarissen-producer:0.1.1
     volumes:
       - ./data/files:/share
+    restart: always
+    labels:
+      - "logging=true"
+    logging: *default-logging
