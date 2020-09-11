@@ -42,9 +42,18 @@ defmodule Acl.UserGroups.Config do
                         "http://schema.org/PostalAddress",
                         "http://www.w3.org/ns/org#Role",
                         "http://www.w3.org/ns/org#Site",
-                        "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileDataObject",
-                        "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#RemoteDataObject"
-                    ] } } ] }
+                        "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileDataObject"
+                    ] } } ] },
+      %GroupSpec{
+        name: "public-wf",
+        useage: [:read, :write, :read_for_write],
+        access: %AlwaysAccessible{}, # TODO: Should be only for logged in users
+        graphs: [%GraphSpec{
+                    graph: "http://mu.semte.ch/graphs/public",
+                    constraint: %ResourceConstraint{
+                      resource_types: [
+                        "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileDataObject"
+                      ] } } ] }
     ]
   end
 end

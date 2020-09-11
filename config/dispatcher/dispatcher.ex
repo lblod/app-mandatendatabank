@@ -107,9 +107,9 @@ defmodule Dispatcher do
   match "/verkiezingsresultaat-gevolg-codes/*path" do
     Proxy.forward conn, path, "http://cache/verkiezingsresultaat-gevolg-codes/"
   end
-  match "/files/*path" do
-    Proxy.forward conn, path, "http://filehost/"
-  end
+  # match "/files/*path" do
+  #   Proxy.forward conn, path, "http://filehost/"
+  # end
   get "/exports/*path" do
     # we bypass the cache on purpose since mu-cl-resources is not the master of the exports
     Proxy.forward conn, path, "http://resource/exports/"
@@ -136,6 +136,7 @@ defmodule Dispatcher do
   delete "/files/*path" do
     Proxy.forward conn, path, "http://file/files/"
   end
+
   get "/sync/mandatarissen/files/*path" do
     Proxy.forward conn, path, "http://mandatarissen-producer/files/"
   end
