@@ -13,7 +13,6 @@
 (read-domain-file "slave-organisatie-domain.lisp")
 (read-domain-file "slave-besluit-domain.lisp")
 (read-domain-file "slave-leidinggevenden-domain.lisp")
-(read-domain-file "master-files-domain.lisp")
 
 (define-resource export ()
   :class (s-prefix "export:Export")

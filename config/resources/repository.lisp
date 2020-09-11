@@ -27,4 +27,3 @@
 (add-prefix "export" "http://mu.semte.ch/vocabularies/ext/export/")
 (add-prefix "lblodlg" "http://data.lblod.info/vocabularies/leidinggevenden/")
 (add-prefix "sign" "http://mu.semte.ch/vocabularies/ext/signing/")
-(add-prefix "nie" "http://www.semanticdesktop.org/ontologies/2007/01/19/nie#")
