@@ -45,7 +45,7 @@ services:
     restart: always
     logging: *default-logging
   delta-notifier:
-    image: semtech/mu-delta-notifier:0.1.0
+    image: dhugaerts/delta-notifier-fork
     volumes:
       - ./config/delta:/config
   virtuoso:
@@ -140,7 +140,7 @@ services:
       - "logging=true"
     logging: *default-logging
   mandatarissen-producer:
-    image: lblod/mandatendatabank-mandatarissen-producer:0.2.2
+    image: lblod/mandatendatabank-mandatarissen-producer:0.3.1
     volumes:
       - ./data/files:/share
     restart: always
