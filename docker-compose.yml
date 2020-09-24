@@ -45,7 +45,7 @@ services:
     restart: always
     logging: *default-logging
   delta-notifier:
-    image: dhugaerts/delta-notifier-fork
+    image: dhugaerts/delta-notifier-fork:0.2.0-beta
     volumes:
       - ./config/delta:/config
   virtuoso:
