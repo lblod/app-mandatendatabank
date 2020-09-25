@@ -13,11 +13,15 @@
     "schema": "http://schema.org/",
     "prov": "http://www.w3.org/ns/prov#",
     "adms": "https://www.w3.org/ns/adms#",
-    "owl": "http://www.w3.org/2002/07/owl#"
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "mu": "http://mu.semte.ch/vocabularies/core/"
   },
   "types": [
     {
       "type": "mandaat:Mandataris",
+      "requiredProperties": [
+        "mu:uuid"
+      ],
       "optionalProperties": [
         "mandaat:start",
         "mandaat:einde",
@@ -33,6 +37,9 @@
     },
     {
       "type": "person:Person",
+      "requiredProperties": [
+        "mu:uuid"
+      ],
       "optionalProperties": [
         "foaf:familyName",
         "persoon:gebruikteVoornaam",
@@ -44,6 +51,9 @@
     },
     {
       "type": "mandaat:TijdsgebondenEntiteit",
+      "requiredProperties": [
+        "mu:uuid"
+      ],
       "optionalProperties": [
         "mandaat:bindingEinde",
         "mandaat:bindingStart",
@@ -53,13 +63,21 @@
     },
     {
       "type": "mandaat:Fractie",
+      "requiredProperties": [
+        "mu:uuid"
+      ],
       "optionalProperties": [
-        "regorg:legalName"
+        "regorg:legalName",
+        "org:linkedTo",
+        "org:memberOf"
       ],
       "additionalFilter": ""
     },
     {
       "type": "besluit:Bestuurseenheid",
+      "requiredProperties": [
+        "mu:uuid"
+      ],
       "optionalProperties": [
         "skos:prefLabel",
         "besluit:werkingsgebied",
@@ -67,12 +85,17 @@
         "org:hasPrimarySite",
         "org:linkedTo",
         "schema:contactPoint",
-        "org:heldBy"
+        "org:heldBy",
+        "org:hasPost",
+        "skos:altLabel"
       ],
       "additionalFilter": ""
     },
     {
       "type": "besluit:Bestuursorgaan",
+      "requiredProperties": [
+        "mu:uuid"
+      ],
       "optionalProperties": [
         "skos:prefLabel",
         "mandaat:bindingEinde",
@@ -86,14 +109,20 @@
     },
     {
       "type": "org:Membership",
+      "requiredProperties": [
+        "mu:uuid"
+      ],
       "optionalProperties": [
         "org:organisation",
-        "org:mumberDuring"
+        "org:memberDuring"
       ],
       "additionalFilter": ""
     },
     {
       "type": "mandaat:Mandaat",
+      "requiredProperties": [
+        "mu:uuid"
+      ],
       "optionalProperties": [
         "mandaat:aantalHouders",
         "org:role"
@@ -102,13 +131,73 @@
     },
     {
       "type": "prov:Location",
+      "requiredProperties": [
+        "mu:uuid"
+      ],
       "optionalProperties": [
-        "rdfs:label"
+        "rdfs:label",
+        "ext:werkingsgebiedNiveau"
       ],
       "additionalFilter": ""
     },
     {
       "type": "skos:Concept",
+      "requiredProperties": [
+        "mu:uuid"
+      ],
+      "optionalProperties": [
+        "skos:prefLabel",
+        "skos:scopeNote"
+      ],
+      "additionalFilter": ""
+    },
+    {
+      "type": "ext:BeleidsdomeinCode",
+      "requiredProperties": [
+        "mu:uuid"
+      ],
+      "optionalProperties": [
+        "skos:prefLabel",
+        "skos:scopeNote"
+      ]
+    },
+    {
+      "type": "ext:MandatarisStatusCode",
+      "requiredProperties": [
+        "mu:uuid"
+      ],
+      "optionalProperties": [
+        "skos:prefLabel",
+        "skos:scopeNote"
+      ]
+    },
+    {
+      "type": "ext:BestuursfunctieCode",
+      "requiredProperties": [
+        "mu:uuid"
+      ],
+      "optionalProperties": [
+        "skos:prefLabel",
+        "skos:scopeNote"
+      ],
+      "additionalFilter": ""
+    },
+    {
+      "type": "ext:BestuursorgaanClassificatieCode",
+      "requiredProperties": [
+        "mu:uuid"
+      ],
+      "optionalProperties": [
+        "skos:prefLabel",
+        "skos:scopeNote"
+      ],
+      "additionalFilter": ""
+    },
+    {
+      "type": "ext:BestuurseenheidClassificatieCode",
+      "requiredProperties": [
+        "mu:uuid"
+      ],
       "optionalProperties": [
         "skos:prefLabel",
         "skos:scopeNote"
