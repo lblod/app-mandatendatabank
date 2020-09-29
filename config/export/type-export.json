@@ -203,6 +203,36 @@
         "skos:scopeNote"
       ],
       "additionalFilter": ""
+    },
+    {
+      "type": "person:Person",
+      "requiredProperties": [
+        "mu:uuid"
+      ],
+      "optionalProperties": [
+        "foaf:familyName",
+        "persoon:gebruikteVoornaam",
+        "foaf:name",
+        "persoon:heeftGeboorte",
+        "persoon:geslacht"
+      ],
+      "additionalFilter": ""
+    },
+    {
+      "type": "persoon:Geboorte",
+      "requiredProperties": [
+        "mu:uuid"
+      ],
+      "optionalProperties": [
+        "persoon:datum"
+      ],
+      "additionalFilter": ""
+    },
+    {
+      "type": "persoon:Geboorte",
+      "requiredProperties": [
+        "owl:sameAs"
+      ]
     }
   ]
 }
