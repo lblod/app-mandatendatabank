@@ -46,7 +46,7 @@ defmodule Acl.UserGroups.Config do
                     ] } } ] },
       %GroupSpec{
         name: "public-wf",
-        useage: [:read, :write, :read_for_write],
+        useage: [ :read ],
         access: %AlwaysAccessible{}, # TODO: Should be only for logged in users
         graphs: [%GraphSpec{
                     graph: "http://mu.semte.ch/graphs/public",
