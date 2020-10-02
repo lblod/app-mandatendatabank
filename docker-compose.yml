@@ -45,7 +45,7 @@ services:
     restart: always
     logging: *default-logging
   delta-notifier:
-    image: dhugaerts/delta-notifier-fork:0.2.1-beta
+    image: dhugaerts/delta-notifier-fork:0.2.2-beta
     volumes:
       - ./config/delta:/config
       - ./data/delta/queues:/queues
