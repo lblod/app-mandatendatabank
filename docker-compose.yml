@@ -141,7 +141,7 @@ services:
       - "logging=true"
     logging: *default-logging
   mandatarissen-producer:
-    image: lblod/mandatendatabank-mandatarissen-producer:0.3.2
+    image: lblod/mandatendatabank-mandatarissen-producer:0.3.3
     volumes:
       - ./data/files:/share
     restart: always
