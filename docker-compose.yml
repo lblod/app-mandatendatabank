@@ -141,9 +141,10 @@ services:
       - "logging=true"
     logging: *default-logging
   mandatarissen-producer:
-    image: lblod/mandatendatabank-mandatarissen-producer:0.3.3
+    image: lblod/simple-delta-file-producer:0.0.2
     volumes:
       - ./data/files:/share
+      - ./config/producer/:/config/
     restart: always
     labels:
       - "logging=true"
