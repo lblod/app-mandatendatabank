@@ -141,7 +141,7 @@ services:
       - "logging=true"
     logging: *default-logging
   mandatarissen-producer:
-    image: lblod/simple-delta-file-producer:0.0.2
+    image: lblod/simple-delta-file-producer:0.0.3
     volumes:
       - ./data/files:/share
       - ./config/producer/:/config/
