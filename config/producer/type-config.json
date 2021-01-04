@@ -1,0 +1,5 @@
+{
+  "ignored": [
+    { "type" : "http://mu.semte.ch/vocabularies/ext/SyncTask"  }
+  ]
+}
