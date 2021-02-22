@@ -19,7 +19,6 @@ services:
   identifier:
     image: semtech/mu-identifier:1.9.0
     environment:
-      DEFAULT_ACCESS_CONTROL_ALLOW_ORIGIN_HEADER: "*"
       DEFAULT_MU_AUTH_ALLOWED_GROUPS_HEADER: "[{\"variables\":[],\"name\":\"public\"}]"
     restart: always
     labels:
@@ -135,13 +134,15 @@ services:
     image: lblod/mandatendatabank-consumer:0.1.4
     environment:
       SYNC_BASE_URL: 'https://loket.lblod.info' # replace with link to Loket API
-      MU_APPLICATION_GRAPH: 'http://mu.semte.ch/application'
+      MU_APPLICATION_GRAPH: 'http://mu.semte.ch/graphs/public'
     restart: always
     labels:
       - "logging=true"
     logging: *default-logging
   mandatarissen-producer:
-    image: lblod/mandatendatabank-mandatarissen-producer:0.3.3
+    image: lblod/simple-delta-file-producer:0.0.3
+    environment:
+      FILE_GRAPH: 'http://mu.semte.ch/graphs/public'
     volumes:
       - ./data/files:/share
     restart: always

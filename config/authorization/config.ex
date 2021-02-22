@@ -19,7 +19,7 @@ defmodule Acl.UserGroups.Config do
         useage: [:read],
         access: %AlwaysAccessible{},
         graphs: [ %GraphSpec{
-                    graph: "http://mu.semte.ch/application",
+                    graph: "http://mu.semte.ch/graphs/public",
                     constraint: %ResourceConstraint{
                       resource_types: [
                         "http://data.vlaanderen.be/ns/mandaat#Mandataris",
@@ -44,16 +44,13 @@ defmodule Acl.UserGroups.Config do
                         "http://www.w3.org/ns/org#Site",
                         "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileDataObject"
                     ] } } ] },
-      %GroupSpec{
-        name: "public-wf",
-        useage: [ :read ],
-        access: %AlwaysAccessible{}, # TODO: Should be only for logged in users
-        graphs: [%GraphSpec{
-                    graph: "http://mu.semte.ch/graphs/public",
-                    constraint: %ResourceConstraint{
-                      resource_types: [
-                        "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileDataObject"
-                      ] } } ] }
+       # // CLEANUP
+       #
+       %GraphCleanup{
+         originating_graph: "http://mu.semte.ch/application",
+         useage: [:write],
+         name: "clean"
+       }
     ]
   end
 end
