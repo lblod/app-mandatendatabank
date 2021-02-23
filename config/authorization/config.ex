@@ -24,6 +24,7 @@ defmodule Acl.UserGroups.Config do
                       resource_types: [
                         "http://data.vlaanderen.be/ns/mandaat#Mandataris",
                         "http://www.w3.org/ns/person#Person",
+                        "http://www.w3.org/ns/org#Post",
                         "http://data.vlaanderen.be/ns/mandaat#TijdsgebondenEntiteit",
                         "http://data.vlaanderen.be/ns/mandaat#Fractie",
                         "http://data.vlaanderen.be/ns/besluit#Bestuurseenheid",
