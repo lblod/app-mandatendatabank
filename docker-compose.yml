@@ -9,7 +9,7 @@ x-logging:
 
 services:
   mandaten:
-    image: lblod/frontend-mandatendatabank:0.11.1
+    image: lblod/frontend-mandatendatabank:0.11.2
     links:
       - identifier:backend
     restart: always
@@ -147,6 +147,7 @@ services:
       FILE_GRAPH: 'http://mu.semte.ch/graphs/public'
     volumes:
       - ./data/files:/share
+      - ./config/producer/:/config/
     restart: always
     labels:
       - "logging=true"

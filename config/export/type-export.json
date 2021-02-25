@@ -27,7 +27,16 @@
         "mandaat:einde",
         "mandaat:rangorde",
         "mandaat:status",
-        "mandaat:isBestuurlijkeAliasVan",
+        "mandaat:isBestuurlijkeAliasVan"
+      ],
+      "additionalFilter": ""
+    },
+    {
+      "type": "mandaat:Mandataris",
+      "requiredProperties": [
+        "mu:uuid"
+      ],
+      "optionalProperties": [
         "mandaat:isTijdelijkVervangenDoor",
         "org:holds",
         "mandaat:beleidsdomein",
@@ -43,7 +52,18 @@
       "optionalProperties": [
         "foaf:familyName",
         "persoon:gebruikteVoornaam",
-        "foaf:name",
+        "persoon:heeftGeboorte",
+        "persoon:geslacht",
+        "foaf:name"
+      ],
+      "additionalFilter": ""
+    },
+    {
+      "type": "person:Person",
+      "requiredProperties": [
+        "mu:uuid"
+      ],
+      "optionalProperties": [
         "adms:identifier",
         "owl:sameAs"
       ],
@@ -83,7 +103,16 @@
         "besluit:werkingsgebied",
         "besluit:classificatie",
         "org:hasPrimarySite",
-        "org:linkedTo",
+        "org:linkedTo"
+      ],
+      "additionalFilter": ""
+    },
+    {
+      "type": "besluit:Bestuurseenheid",
+      "requiredProperties": [
+        "mu:uuid"
+      ],
+      "optionalProperties": [
         "schema:contactPoint",
         "org:heldBy",
         "org:hasPost",
@@ -101,7 +130,16 @@
         "mandaat:bindingEinde",
         "mandaat:bindingStart",
         "besluit:bestuurt",
-        "besluit:classificatie",
+        "besluit:classificatie"
+      ],
+      "additionalFilter": ""
+    },
+    {
+      "type": "besluit:Bestuursorgaan",
+      "requiredProperties": [
+        "mu:uuid"
+      ],
+      "optionalProperties": [
         "mandaat:isTijdspecialisatieVan",
         "org:hasPost"
       ],
@@ -205,34 +243,15 @@
       "additionalFilter": ""
     },
     {
-      "type": "person:Person",
-      "requiredProperties": [
-        "mu:uuid"
-      ],
-      "optionalProperties": [
-        "foaf:familyName",
-        "persoon:gebruikteVoornaam",
-        "foaf:name",
-        "persoon:heeftGeboorte",
-        "persoon:geslacht"
-      ],
-      "additionalFilter": ""
-    },
-    {
       "type": "persoon:Geboorte",
       "requiredProperties": [
         "mu:uuid"
       ],
       "optionalProperties": [
-        "persoon:datum"
-      ],
-      "additionalFilter": ""
-    },
-    {
-      "type": "persoon:Geboorte",
-      "requiredProperties": [
+        "persoon:datum",
         "owl:sameAs"
-      ]
+      ],
+      "additionalFilter": ""
     }
   ]
 }
