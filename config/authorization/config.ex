@@ -43,7 +43,8 @@ defmodule Acl.UserGroups.Config do
                         "http://schema.org/PostalAddress",
                         "http://www.w3.org/ns/org#Role",
                         "http://www.w3.org/ns/org#Site",
-                        "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileDataObject"
+                        "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileDataObject",
+                        "http://mu.semte.ch/vocabularies/ext/SyncTask"
                     ] } } ] },
        # // CLEANUP
        #
