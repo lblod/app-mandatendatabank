@@ -52,8 +52,6 @@
       "optionalProperties": [
         "foaf:familyName",
         "persoon:gebruikteVoornaam",
-        "persoon:heeftGeboorte",
-        "persoon:geslacht",
         "foaf:name"
       ],
       "additionalFilter": ""
@@ -239,17 +237,6 @@
       "optionalProperties": [
         "skos:prefLabel",
         "skos:scopeNote"
-      ],
-      "additionalFilter": ""
-    },
-    {
-      "type": "persoon:Geboorte",
-      "requiredProperties": [
-        "mu:uuid"
-      ],
-      "optionalProperties": [
-        "persoon:datum",
-        "owl:sameAs"
       ],
       "additionalFilter": ""
     }
