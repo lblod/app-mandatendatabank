@@ -62,6 +62,8 @@ services:
     logging: *default-logging
   migrations:
     image: semtech/mu-migrations-service:0.6.0
+    environment:
+      MU_SPARQL_TIMEOUT: '300'
     links:
       - virtuoso:database
     volumes:
@@ -135,13 +137,15 @@ services:
     image: lblod/mandatendatabank-consumer:0.1.4
     environment:
       SYNC_BASE_URL: 'https://loket.lblod.info' # replace with link to Loket API
-      MU_APPLICATION_GRAPH: 'http://mu.semte.ch/application'
+      MU_APPLICATION_GRAPH: 'http://mu.semte.ch/graphs/public'
     restart: always
     labels:
       - "logging=true"
     logging: *default-logging
   mandatarissen-producer:
     image: lblod/simple-delta-file-producer:0.0.3
+    environment:
+      FILE_GRAPH: 'http://mu.semte.ch/graphs/public'
     volumes:
       - ./data/files:/share
       - ./config/producer/:/config/

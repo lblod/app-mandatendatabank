@@ -19,11 +19,12 @@ defmodule Acl.UserGroups.Config do
         useage: [:read],
         access: %AlwaysAccessible{},
         graphs: [ %GraphSpec{
-                    graph: "http://mu.semte.ch/application",
+                    graph: "http://mu.semte.ch/graphs/public",
                     constraint: %ResourceConstraint{
                       resource_types: [
                         "http://data.vlaanderen.be/ns/mandaat#Mandataris",
                         "http://www.w3.org/ns/person#Person",
+                        "http://www.w3.org/ns/org#Post",
                         "http://data.vlaanderen.be/ns/mandaat#TijdsgebondenEntiteit",
                         "http://data.vlaanderen.be/ns/mandaat#Fractie",
                         "http://data.vlaanderen.be/ns/besluit#Bestuurseenheid",
@@ -42,18 +43,16 @@ defmodule Acl.UserGroups.Config do
                         "http://schema.org/PostalAddress",
                         "http://www.w3.org/ns/org#Role",
                         "http://www.w3.org/ns/org#Site",
-                        "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileDataObject"
+                        "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileDataObject",
+                        "http://mu.semte.ch/vocabularies/ext/SyncTask"
                     ] } } ] },
-      %GroupSpec{
-        name: "public-wf",
-        useage: [ :read ],
-        access: %AlwaysAccessible{}, # TODO: Should be only for logged in users
-        graphs: [%GraphSpec{
-                    graph: "http://mu.semte.ch/graphs/public",
-                    constraint: %ResourceConstraint{
-                      resource_types: [
-                        "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileDataObject"
-                      ] } } ] }
+       # // CLEANUP
+       #
+       %GraphCleanup{
+         originating_graph: "http://mu.semte.ch/application",
+         useage: [:write],
+         name: "clean"
+       }
     ]
   end
 end
