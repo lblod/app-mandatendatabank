@@ -1,3 +1,13 @@
+#####################
+# Avoid sprintf error
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/application> {
+     <http://dummy/data/subject> a <http://mu.semte.ch/vocabularies/ext/SyncTask> .
+  }
+}
+
+;
+
 DELETE {
   GRAPH  <http://mu.semte.ch/application> {
     ?s ?p ?o .
@@ -8,6 +18,41 @@ DELETE {
   }
 } WHERE {
   GRAPH  <http://mu.semte.ch/application> {
-    ?s ?p ?o .
+    ?s a ?type ; ?p ?o .
+    VALUES ?type {
+        <http://data.vlaanderen.be/ns/mandaat#Mandataris>
+        <http://www.w3.org/ns/person#Person>
+        <http://www.w3.org/ns/org#Post>
+        <http://data.vlaanderen.be/ns/mandaat#TijdsgebondenEntiteit>
+        <http://data.vlaanderen.be/ns/mandaat#Fractie>
+        <http://data.vlaanderen.be/ns/besluit#Bestuurseenheid>
+        <http://www.w3.org/ns/prov#Location>
+        <http://data.vlaanderen.be/ns/besluit#Bestuursorgaan>
+        <http://data.vlaanderen.be/ns/persoon#Geboorte>
+        <http://www.w3.org/ns/org#Membership>
+        <http://data.vlaanderen.be/ns/mandaat#Mandaat>
+        <http://mu.semte.ch/vocabularies/ext/BestuursfunctieCode>
+        <http://mu.semte.ch/vocabularies/ext/MandatarisStatusCode>
+        <http://mu.semte.ch/vocabularies/ext/BeleidsdomeinCode>
+        <http://mu.semte.ch/vocabularies/ext/GeslachtCode>
+        <http://mu.semte.ch/vocabularies/ext/BestuurseenheidClassificatieCode>
+        <http://mu.semte.ch/vocabularies/ext/BestuursorgaanClassificatieCode>
+        <http://www.w3.org/ns/org#Organization>
+        <http://schema.org/PostalAddress>
+        <http://www.w3.org/ns/org#Role>
+        <http://www.w3.org/ns/org#Site>
+        <http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileDataObject>
+        <http://mu.semte.ch/vocabularies/ext/SyncTask>
+    }
+  }
+}
+
+;
+
+#####################
+# Avoid sprintf error
+DELETE DATA {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+     <http://dummy/data/subject> a <http://mu.semte.ch/vocabularies/ext/SyncTask> .
   }
 }
