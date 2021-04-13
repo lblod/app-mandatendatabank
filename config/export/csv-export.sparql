@@ -7,7 +7,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX regorg: <https://www.w3.org/ns/regorg#>
 
-SELECT ?s AS ?mandataris ?start ?eind ?rangorde ?status ?statusLabel ?persoon ?voornaam ?achternaam ?roepnaam ?mandaat ?bestuursfunctie ?bestuursfunctieLabel ?bestuursorgaan ?bestuursorgaanLabel ?bestuursPeriodeStart ?bestuursPeriodeEinde ?bestuursorgaanClassificatie ?bestuursorgaanClassificatieLabel ?bestuurseenheidLabel ?bestuurseenheidClassificatie ?bestuurseenheidClassificatieLabel ?werkingsgebied ?werkingsgebiedLabel ?fractie ?fractieNaam ?beleidsdomein ?beleidsdomeinLabel FROM <http://mu.semte.ch/application> WHERE {
+SELECT ?s AS ?mandataris ?start ?eind ?rangorde ?status ?statusLabel ?persoon ?voornaam ?achternaam ?roepnaam ?mandaat ?bestuursfunctie ?bestuursfunctieLabel ?bestuursorgaan ?bestuursorgaanLabel ?bestuursPeriodeStart ?bestuursPeriodeEinde ?bestuursorgaanClassificatie ?bestuursorgaanClassificatieLabel ?bestuurseenheidLabel ?bestuurseenheidClassificatie ?bestuurseenheidClassificatieLabel ?werkingsgebied ?werkingsgebiedLabel ?fractie ?fractieNaam ?beleidsdomein ?beleidsdomeinLabel FROM <http://mu.semte.ch/graphs/public> WHERE {
   ?s a mandaat:Mandataris .
 
   OPTIONAL {
