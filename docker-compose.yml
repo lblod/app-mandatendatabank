@@ -148,7 +148,7 @@ services:
       - "logging=true"
     logging: *default-logging
   mandatarissen-producer:
-    image: lblod/simple-delta-file-producer:0.0.3
+    image: lblod/simple-delta-file-producer:0.0.4-beta.1
     environment:
       FILE_GRAPH: 'http://mu.semte.ch/graphs/public'
     volumes:
