@@ -34,10 +34,15 @@ services:
       - "logging=true"
     logging: *default-logging
   database:
-    image: semtech/mu-authorization:0.6.0-beta.4
+    image: cecemel/mu-authorization:0.6.0-beta.8
     environment:
       MU_SPARQL_ENDPOINT: "http://virtuoso:8890/sparql"
       DATABASE_COMPATIBILITY: "Virtuoso"
+      DATABASE_OVERLOAD_RECOVERY: "true"
+      # Note: not sure wether it does something, it is meant for healing-process which may make
+      # heavy queries
+      QUERY_MAX_PROCESSING_TIME: 605000
+      QUERY_MAX_EXECUTION_TIME: 605000
     volumes:
       - ./config/authorization:/config
     labels:
@@ -45,7 +50,7 @@ services:
     restart: always
     logging: *default-logging
   delta-notifier:
-    image: semtech/mu-delta-notifier:0.1.0
+    image: cecemel/delta-notifier:0.2.0-beta.2
     volumes:
       - ./config/delta:/config
       - ./data/delta/queues:/queues
