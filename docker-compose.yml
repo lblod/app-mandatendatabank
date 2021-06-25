@@ -145,6 +145,13 @@ services:
     labels:
       - "logging=true"
     logging: *default-logging
+################################################################################
+# DELTAS
+################################################################################
+  delta-producer-report-generator:
+    image: lblod/delta-producer-report-generator:0.2.0
+    volumes:
+      - ./config/delta-producer-consumer/report-generator:/config
   mandatendatabank-consumer:
     image: lblod/delta-consumer-single-graph-maintainer:0.1.0
     environment:
@@ -156,14 +163,20 @@ services:
     labels:
       - "logging=true"
     logging: *default-logging
+################################################################################
+# DELTAS: TO BE DEPRECATED
+################################################################################
   mandatarissen-producer:
     image: lblod/simple-delta-file-producer:0.0.4-beta.1
     environment:
       FILE_GRAPH: 'http://mu.semte.ch/graphs/public'
     volumes:
       - ./data/files:/share
-      - ./config/producer/:/config/
+      - ./config/delta-producer-consumer/producer/:/config/
     restart: always
     labels:
       - "logging=true"
     logging: *default-logging
+################################################################################
+# END DELTAS
+################################################################################
