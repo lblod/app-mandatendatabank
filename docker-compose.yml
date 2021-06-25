@@ -153,7 +153,7 @@ services:
     volumes:
       - ./config/delta-producer-consumer/report-generator:/config
   mandatendatabank-consumer:
-    image: lblod/delta-consumer-single-graph-maintainer:0.2.0
+    image: lblod/delta-consumer-single-graph-maintainer:0.2.1
     environment:
       SYNC_BASE_URL: 'https://loket.lblod.info' # replace with link to Loket API
       SERVICE_NAME: 'mandatendatabank-consumer'
