@@ -60,13 +60,10 @@ In practice, it is going to be loket and their dev and QA variations.
       - ./config/virtuoso/:/opt/virtuoso-scripts
 ```
 #### delta-producer-report-generator
-This service won't start, as long as the following parameters are not provided:
-```
-  delta-producer-report-generator:
-    environment:
-      EMAIL_FROM: "hello@example.com"
-      EMAIL_TO: "hello@example.com"
-```
+Not all required parameters are provided, since deploy specific, see [report-generator](https://github.com/lblod/delta-producer-report-generator)
+#### deliver-email-service
+Should have credentials provided, see [deliver-email-service](https://github.com/redpencilio/deliver-email-service)
+
 ## Further info
 The stack is built starting from [mu-project](https://github.com/mu-semtech/mu-project).
 
