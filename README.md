@@ -46,11 +46,28 @@ To proceed:
    ```
 5. `drc restart resource cache` is still needed after the intial sync.
 
-### Endpoints to choose for ingestion.
+### Additional notes:
+#### Endpoints to choose for ingestion.
 On abstract level, all applications which produce deltas provided `delta-producer-*` services set, and talk about the AP-model defined in [mandatendatabank](http://data.vlaanderen.be/doc/applicatieprofiel/mandatendatabank)
 In practice, it is going to be loket and their dev and QA variations.
-
-
+#### Performance
+- The default virtuoso settings might be too weak if you need to ingest the production data. Hence, there is better config, you can take over in your `docker-compose.override.yml`
+```
+  virtuoso:
+    volumes:
+      - ./data/db:/data
+      - ./config/virtuoso/virtuoso-production.ini:/data/virtuoso.ini
+      - ./config/virtuoso/:/opt/virtuoso-scripts
+```
+#### delta-producer-report-generator
+This service won't start, as long as the following parameters are not provided:
+```
+  delta-producer-report-generator:
+    environment:
+      EMAIL_FROM: "hello@example.com"
+      EMAIL_TO: "hello@example.com"
+```
+## Further info
 The stack is built starting from [mu-project](https://github.com/mu-semtech/mu-project).
 
 OpenAPI documentation can be generated using [cl-resources-openapi-generator](https://github.com/mu-semtech/cl-resources-openapi-generator).
