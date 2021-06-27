@@ -34,3 +34,5 @@ services:
     restart: "no"
   mandatarissen-producer:
     restart: "no"
+  deliver-email-service:
+    restart: "no"
