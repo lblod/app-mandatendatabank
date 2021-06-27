@@ -157,7 +157,7 @@ services:
 # DELTAS
 ################################################################################
   delta-producer-report-generator:
-    image: lblod/delta-producer-report-generator:0.2.0
+    image: lblod/delta-producer-report-generator:0.3.0
     environment:
       OUTBOX: "http://data.lblod.info/id/mail-folders/2"
     volumes:
