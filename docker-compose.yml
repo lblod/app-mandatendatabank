@@ -173,6 +173,7 @@ services:
       JOB_CREATOR_URI: "http://data.lblod.info/services/id/mandatendatabank-consumer"
       DISABLE_INITIAL_SYNC: 'true'
       BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES: 'true'
+      KEEP_DELTA_FILES: 'true'
     restart: always
     labels:
       - "logging=true"
