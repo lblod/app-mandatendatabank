@@ -75,3 +75,4 @@ SELECT ?s AS ?mandataris ?start ?eind ?rangorde ?status ?statusLabel ?persoon ?v
   }
 
 }
+ORDER BY ?mandataris
