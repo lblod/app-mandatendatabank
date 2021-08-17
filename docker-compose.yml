@@ -179,19 +179,5 @@ services:
       - "logging=true"
     logging: *default-logging
 ################################################################################
-# DELTAS: TO BE DEPRECATED
-################################################################################
-  mandatarissen-producer:
-    image: lblod/simple-delta-file-producer:0.0.4-beta.1
-    environment:
-      FILE_GRAPH: 'http://mu.semte.ch/graphs/public'
-    volumes:
-      - ./data/files:/share
-      - ./config/delta-producer-consumer/producer/:/config/
-    restart: always
-    labels:
-      - "logging=true"
-    logging: *default-logging
-################################################################################
 # END DELTAS
 ################################################################################

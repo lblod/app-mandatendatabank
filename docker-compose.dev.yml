@@ -32,7 +32,5 @@ services:
     restart: "no"
   mandatendatabank-consumer:
     restart: "no"
-  mandatarissen-producer:
-    restart: "no"
   deliver-email-service:
     restart: "no"
