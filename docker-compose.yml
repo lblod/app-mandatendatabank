@@ -9,7 +9,7 @@ x-logging:
 
 services:
   mandaten:
-    image: lblod/frontend-mandatendatabank:0.13.4
+    image: lblod/frontend-mandatendatabank:0.14.0
     links:
       - identifier:backend
     restart: always
@@ -26,7 +26,7 @@ services:
       - "logging=true"
     logging: *default-logging
   dispatcher:
-    image: semtech/mu-dispatcher:1.1.2
+    image: semtech/mu-dispatcher:2.1.0-beta.2
     volumes:
       - ./config/dispatcher:/config
     restart: always

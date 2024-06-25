@@ -1,134 +1,142 @@
 defmodule Dispatcher do
-  use Plug.Router
+  use Matcher
 
-  def start(_argv) do
-    port = 80
-    IO.puts "Starting Plug with Cowboy on port #{port}"
-    Plug.Adapters.Cowboy.http __MODULE__, [], port: port
-    :timer.sleep(:infinity)
-  end
+  define_accept_types [
+    json: [ "application/json", "application/vnd.api+json" ],
+    html: [ "text/html", "application/xhtml+html" ],
+    any: [ "*/*" ]
+  ]
 
-  plug Plug.Logger
-  plug :match
-  plug :dispatch
+  define_layers [ :static, :web_page, :api_services, :not_found ]
 
-  # In order to forward the 'themes' resource to the
-  # resource service, use the following forward rule.
-  #
-  # docker-compose stop; docker-compose rm; docker-compose up
-  # after altering this file.
-  #
-  # match "/themes/*path" do
-  #   Proxy.forward conn, path, "http://resource/themes/"
-  # end
+  @static %{ layer: :static }
+  @api %{ layer: :api_services }
 
-  options _ do
-    send_resp( conn, 200, "Option calls are accepted by default." )
+  # Option calls are accepted by default
+  options "/*_path", _ do
+    conn
+    |> Plug.Conn.put_resp_header( "access-control-allow-headers", "content-type,accept" )
+    |> Plug.Conn.put_resp_header( "access-control-allow-methods", "*" )
+    |> send_resp( 200, "{ \"message\": \"ok\" }" )
   end
 
-  match "/bestuurseenheden/*path" do
-    Proxy.forward conn, path, "http://cache/bestuurseenheden/"
+  get "/assets/*path", @static do
+    forward conn, path, "http://mandaten/assets/"
   end
-  match "/werkingsgebieden/*path" do
-    Proxy.forward conn, path, "http://cache/werkingsgebieden/"
+
+  match "/files/*path", @static do
+    forward conn, path, "http://filehost/"
   end
-  match "/bestuurseenheid-classificatie-codes/*path" do
-    Proxy.forward conn, path, "http://cache/bestuurseenheid-classificatie-codes/"
+
+  get "/favicon.ico", @static do
+    send_resp( conn, 404, "" )
   end
-  match "/bestuursorganen/*path" do
-    Proxy.forward conn, path, "http://cache/bestuursorganen/"
+
+  get "/sitemap.xml", @static do
+    forward conn, [], "http://sitemap/sitemap.xml"
   end
-  match "/bestuursorgaan-classificatie-codes/*path" do
-    Proxy.forward conn, path, "http://cache/bestuursorgaan-classificatie-codes/"
+
+  get "/*path", %{ layer: :web_page, accept: %{ html: true } } do
+    forward conn, path, "http://mandaten/"
   end
-  match "/fracties/*path" do
-    Proxy.forward conn, path, "http://cache/fracties/"
+
+  match "/bestuurseenheden/*path", @api do
+    forward conn, path, "http://cache/bestuurseenheden/"
   end
-  match "/fractietypes/*path" do
-    Proxy.forward conn, path, "http://cache/fractietypes/"
+  match "/werkingsgebieden/*path", @api do
+    forward conn, path, "http://cache/werkingsgebieden/"
   end
-  match "/geboortes/*path" do
-    Proxy.forward conn, path, "http://cache/geboortes/"
+  match "/bestuurseenheid-classificatie-codes/*path", @api do
+    forward conn, path, "http://cache/bestuurseenheid-classificatie-codes/"
   end
-  match "/lijsttypes/*path" do
-    Proxy.forward conn, path, "http://cache/lijsttypes/"
+  match "/bestuursorganen/*path", @api do
+    forward conn, path, "http://cache/bestuursorganen/"
   end
-  match "/kandidatenlijsten/*path" do
-    Proxy.forward conn, path, "http://cache/kandidatenlijsten/"
+  match "/bestuursorgaan-classificatie-codes/*path", @api do
+    forward conn, path, "http://cache/bestuursorgaan-classificatie-codes/"
   end
-  match "/lidmaatschappen/*path" do
-    Proxy.forward conn, path, "http://cache/lidmaatschappen/"
+  match "/fracties/*path", @api do
+    forward conn, path, "http://cache/fracties/"
   end
-  match "/mandaten/*path" do
-    Proxy.forward conn, path, "http://cache/mandaten/"
+  match "/fractietypes/*path", @api do
+    forward conn, path, "http://cache/fractietypes/"
   end
-  match "/bestuursfunctie-codes/*path" do
-    Proxy.forward conn, path, "http://cache/bestuursfunctie-codes/"
+  match "/geboortes/*path", @api do
+    forward conn, path, "http://cache/geboortes/"
   end
-  match "/mandatarissen/*path" do
-    Proxy.forward conn, path, "http://cache/mandatarissen/"
+  match "/lijsttypes/*path", @api do
+    forward conn, path, "http://cache/lijsttypes/"
   end
-  match "/mandataris-status-codes/*path" do
-    Proxy.forward conn, path, "http://cache/mandataris-status-codes/"
+  match "/kandidatenlijsten/*path", @api do
+    forward conn, path, "http://cache/kandidatenlijsten/"
   end
-  match "/beleidsdomein-codes/*path" do
-    Proxy.forward conn, path, "http://cache/beleidsdomein-codes/"
+  match "/lidmaatschappen/*path", @api do
+    forward conn, path, "http://cache/lidmaatschappen/"
   end
-  match "/personen/*path" do
-    Proxy.forward conn, path, "http://cache/personen/"
+  match "/mandaten/*path", @api do
+    forward conn, path, "http://cache/mandaten/"
   end
-  match "/geslacht-codes/*path" do
-    Proxy.forward conn, path, "http://cache/geslacht-codes/"
+  match "/bestuursfunctie-codes/*path", @api do
+    forward conn, path, "http://cache/bestuursfunctie-codes/"
   end
-  match "/identificatoren/*path" do
-    Proxy.forward conn, path, "http://cache/identificatoren/"
+  match "/mandatarissen/*path", @api do
+    forward conn, path, "http://cache/mandatarissen/"
   end
-  match "/rechtsgronden-aanstelling/*path" do
-    Proxy.forward conn, path, "http://cache/rechtsgronden-aanstelling/"
+  match "/mandataris-status-codes/*path", @api do
+    forward conn, path, "http://cache/mandataris-status-codes/"
   end
-  match "/rechtsgronden-beeindiging/*path" do
-    Proxy.forward conn, path, "http://cache/rechtsgronden-beeindiging/"
+  match "/beleidsdomein-codes/*path", @api do
+    forward conn, path, "http://cache/beleidsdomein-codes/"
   end
-  match "/rechtstreekse-verkiezingen/*path" do
-    Proxy.forward conn, path, "http://cache/rechtstreekse-verkiezingen/"
+  match "/personen/*path", @api do
+    forward conn, path, "http://cache/personen/"
   end
-  match "/rechtsgronden/*path" do
-    Proxy.forward conn, path, "http://cache/rechtsgronden/"
+  match "/geslacht-codes/*path", @api do
+    forward conn, path, "http://cache/geslacht-codes/"
   end
-  match "/tijdsgebonden-entiteiten/*path" do
-    Proxy.forward conn, path, "http://cache/tijdsgebonden-entiteiten/"
+  match "/identificatoren/*path", @api do
+    forward conn, path, "http://cache/identificatoren/"
   end
-  match "/tijdsintervallen/*path" do
-    Proxy.forward conn, path, "http://cache/tijdsintervallen/"
+  match "/rechtsgronden-aanstelling/*path", @api do
+    forward conn, path, "http://cache/rechtsgronden-aanstelling/"
   end
-  match "/verkiezingsresultaten/*path" do
-    Proxy.forward conn, path, "http://cache/verkiezingsresultaten/"
+  match "/rechtsgronden-beeindiging/*path", @api do
+    forward conn, path, "http://cache/rechtsgronden-beeindiging/"
   end
-  match "/verkiezingsresultaat-gevolg-codes/*path" do
-    Proxy.forward conn, path, "http://cache/verkiezingsresultaat-gevolg-codes/"
+  match "/rechtstreekse-verkiezingen/*path", @api do
+    forward conn, path, "http://cache/rechtstreekse-verkiezingen/"
   end
-  match "/files/*path" do
-    Proxy.forward conn, path, "http://filehost/"
+  match "/rechtsgronden/*path", @api do
+    forward conn, path, "http://cache/rechtsgronden/"
   end
-  get "/exports/*path" do
+  match "/tijdsgebonden-entiteiten/*path", @api do
+    forward conn, path, "http://cache/tijdsgebonden-entiteiten/"
+  end
+  match "/tijdsintervallen/*path", @api do
+    forward conn, path, "http://cache/tijdsintervallen/"
+  end
+  match "/verkiezingsresultaten/*path", @api do
+    forward conn, path, "http://cache/verkiezingsresultaten/"
+  end
+  match "/verkiezingsresultaat-gevolg-codes/*path", @api do
+    forward conn, path, "http://cache/verkiezingsresultaat-gevolg-codes/"
+  end
+  get "/exports/*path", @api do
     # we bypass the cache on purpose since mu-cl-resources is not the master of the exports
-    Proxy.forward conn, path, "http://resource/exports/"
-  end
-  get "/sitemap.xml" do
-    Proxy.forward conn, [], "http://sitemap/sitemap.xml"
+    forward conn, path, "http://resource/exports/"
   end
 
   ###############################################################
   # delta-files
   ###############################################################
-  get "/delta-files/:id/download" do
-    Proxy.forward conn, [], "http://file/files/" <> id <> "/download"
+  get "/delta-files/:id/download", %{ layer: :api_services, accept: %{ any: true } } do
+    forward conn, [], "http://file/files/" <> id <> "/download"
   end
-  get "/sync/mandatarissen/files/*path" do
-    Proxy.forward conn, path, "http://mandatarissen-producer/files/"
+  get "/sync/mandatarissen/files/*path", %{ layer: :api_services, accept: %{ any: true } } do
+    forward conn, path, "http://mandatarissen-producer/files/"
   end
 
-  match _ do
+  match "/*_", %{ layer: :not_found } do
     send_resp( conn, 404, "Route not found.  See config/dispatcher.ex" )
   end
 
