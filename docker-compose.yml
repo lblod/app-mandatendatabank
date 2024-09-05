@@ -167,17 +167,22 @@ services:
     restart: always
     logging: *default-logging
   mandatendatabank-consumer:
-    image: lblod/delta-consumer-single-graph-maintainer:0.3.4
+    image: lblod/delta-consumer:0.0.25-rc.4
     environment:
-      SYNC_BASE_URL: 'https://loket.lblod.info' # replace with link to Loket API
-      SERVICE_NAME: 'mandatendatabank-consumer'
-      SYNC_FILES_PATH: '/sync/mandatarissen/files'
-      SYNC_DATASET_SUBJECT: "http://data.lblod.info/datasets/delta-producer/dumps/MandatarissenCacheGraphDump"
-      INITIAL_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/initialSync/mandatarissen"
-      JOB_CREATOR_URI: "http://data.lblod.info/services/id/mandatendatabank-consumer"
-      DISABLE_INITIAL_SYNC: 'true'
+      DCR_SYNC_BASE_URL: 'https://loket.lblod.info' # replace with link to Loket API
+      DCR_SERVICE_NAME: 'mandatendatabank-consumer'
+      DCR_SYNC_FILES_PATH: '/sync/mandatarissen/files'
+      DCR_SYNC_DATASET_SUBJECT: "http://data.lblod.info/datasets/delta-producer/dumps/MandatarissenCacheGraphDump"
+      DCR_INITIAL_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/initialSync/mandatarissen"
+      DCR_DELTA_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/sync/mandatarissen"
+      DCR_JOB_CREATOR_URI: "http://data.lblod.info/services/id/mandatendatabank-consumer"
       BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES: 'true'
-      KEEP_DELTA_FILES: 'true'
+      DCR_KEEP_DELTA_FILES: 'true'
+      DCR_DISABLE_INITIAL_SYNC: 'true'
+      INGEST_GRAPH: "http://mu.semte.ch/graphs/public"
+      SLEEP_BETWEEN_BATCHES: 100
+      DCR_BATCH_SIZE: 10000 # TODO: this is confusing bit in the API -> refers to the chunks of the read stream of the dumpfile of the intiial sync
+      BATCH_SIZE: 10000 # TODO: this is confusing bit in the API -> refers to the chunks of the ingestion in the database
     restart: always
     labels:
       - "logging=true"
