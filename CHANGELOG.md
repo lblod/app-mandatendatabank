@@ -1,4 +1,17 @@
 # Changelog
+## Unreleased
+### Changes
+- Frontend (`v0.14.0`)[https://github.com/lblod/frontend-mandatendatabank/blob/master/CHANGELOG.md#v0140-2024-06-27]
+- Update the dispatcher config for the new frontend (DL-6037)
+### Deploy notes
+#### Environment variable changes
+The new dispatcher setup expects a different flow of microservices. Instead of entering the frontend microservice, which then calls the backend, we need to enter the identifier first.
+
+In the `docker-compose.override.yml` file, move the `VIRTUAL_HOST`, `LETSENCRYPT_HOST` and `LETSENCRYPT_EMAIL` environment variables from the `mandaten` (frontend) service to the `identifier` service.
+
+### Docker commands
+- `drc up -d`
+
 ## 1.12.0 (2024-09-03)
 - prepare LMB cutover, taking the opportunity to bump the consumer [DL-6144]
 ### deploy notes
