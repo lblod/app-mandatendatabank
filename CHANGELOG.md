@@ -1,4 +1,5 @@
 # Changelog
+## 1.12.0 (2024-09-03)
 - prepare LMB cutover, taking the opportunity to bump the consumer
 ### deploy notes
 Take a backup before deploying.
