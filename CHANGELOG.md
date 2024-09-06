@@ -1,5 +1,5 @@
 # Changelog
-## Unreleased
+## 1.13.0 (2024-09-06)
 ### Changes
 - Frontend (`v0.14.0`)[https://github.com/lblod/frontend-mandatendatabank/blob/master/CHANGELOG.md#v0140-2024-06-27]
 - Update the dispatcher config for the new frontend (DL-6037)
