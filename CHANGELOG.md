@@ -32,8 +32,18 @@ Ensure first `docker-compose.override.yml`
 drc up -d migrations
 ```
 ```
-drc up -d 
+drc up -d
 ```
+After that ensure in `docker-compose.override.yml`:
+```
+  mandatendatabank-consumer:
+    environment:
+      DCR_SYNC_BASE_URL: 'https://loket.lokaalbestuur.vlaanderen.be'
+      DCR_DISABLE_INITIAL_SYNC: 'false'
+      DCR_DISABLE_DELTA_INGEST: 'false'
+      BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES: 'false'
+```
+
 ## 1.11.1 (2024-08-12)
  - Add missing `restart`, `labels` and `logging` keys. [DL-6095]
 ### Deploy Notes
