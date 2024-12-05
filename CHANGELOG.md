@@ -1,4 +1,29 @@
 # Changelog
+## 1.13.1 (2024-09-06)
+### General
+ - flush data and re-init consumer. It has never been properly deployed
+### Deploy notes
+```
+drc down;
+```
+Update `docker-compose.override.yml` to:
+
+```
+  mandatendatabank-consumer:
+    environment:
+      DCR_SYNC_BASE_URL: "https://loket.lokaalbestuur.vlaanderen.be"
+      DCR_DISABLE_DELTA_INGEST: "false"
+      DCR_DISABLE_INITIAL_SYNC: "false"
+```
+Then:
+```
+drc up -d migrations
+drc up -d database mandatendatabank-consumer
+# Wait until success
+drc up -d
+```
+
+
 ## 1.13.0 (2024-09-06)
 ### Changes
 - Frontend (`v0.14.0`)[https://github.com/lblod/frontend-mandatendatabank/blob/master/CHANGELOG.md#v0140-2024-06-27]

@@ -167,7 +167,7 @@ services:
     restart: always
     logging: *default-logging
   mandatendatabank-consumer:
-    image: lblod/delta-consumer:0.0.25-rc.4
+    image: lblod/delta-consumer:0.0.26
     environment:
       DCR_SYNC_BASE_URL: 'https://loket.lblod.info' # replace with link to Loket API
       DCR_SERVICE_NAME: 'mandatendatabank-consumer'
@@ -176,6 +176,7 @@ services:
       DCR_INITIAL_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/initialSync/mandatarissen"
       DCR_DELTA_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/sync/mandatarissen"
       DCR_JOB_CREATOR_URI: "http://data.lblod.info/services/id/mandatendatabank-consumer"
+      DCR_DELTA_JOBS_RETENTION_PERIOD: 15
       BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES: 'true'
       DCR_KEEP_DELTA_FILES: 'true'
       DCR_DISABLE_INITIAL_SYNC: 'true'
