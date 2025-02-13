@@ -16,17 +16,24 @@ The ingestion is disabled by default.
 
 To proceed:
 1. make sure the app is up and running. And the migrations have run.
-2. In docker-compose.override.yml (preferably) override the following parameters for mandatendatabank-consumer
+2. In docker-compose.override.yml (preferably) override the following parameters for mandatendatabank-consumer and op-public-consumer
 ```
 # (...)
   mandatendatabank-consumer:
     environment:
       SYNC_BASE_URL: 'https://loket.lblod.info' # The endpoint of your choice (see later what to choose)
       DISABLE_INITIAL_SYNC: 'false'
+  op-public-consumer:
+    environment:
+      DCR_SYNC_BASE_URL: "https://organisaties.abb.vlaanderen.be" # or another endpoint
+      DCR_LANDING_ZONE_DATABASE: "virtuoso" # for the initial sync, we go directly to virtuoso
+      DCR_REMAPPING_DATABASE: "virtuoso" # for the initial sync, we go directly to virtuoso
+      DCR_DISABLE_DELTA_INGEST: "true"
+      DCR_DISABLE_INITIAL_SYNC: "false"
 ```
-3. `docker-compose up -d mandatendatabank-consumer` should start the ingestion.
-  This might take a while if yoh ingest production data.
-4. Check the logs, at some point this message should show up
+3. `docker-compose up -d mandatendatabank-consumer op-public-consumer` should start the ingestion.
+  This might take a while if you ingest production data.
+4. Check the logs, at some point this message should show up for both consumers:
   `Initial sync was success, proceeding in Normal operation mode: ingest deltas`
    or execute in the database:
    ```
@@ -36,9 +43,14 @@ To proceed:
    PREFIX cogs: <http://vocab.deri.ie/cogs#>
 
    SELECT ?s ?status ?created WHERE {
+    VALUES ?operation {
+      <http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/initialSync/mandatarissen>
+      <http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/initialSync/op-public>
+    }
+
      ?s a <http://vocab.deri.ie/cogs#Job> ;
        adms:status ?status ;
-       task:operation <http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/initialSync/mandatarissen> ;
+       task:operation ?operation ;
        dct:created ?created ;
        dct:creator <http://data.lblod.info/services/id/mandatendatabank-consumer> .
     }

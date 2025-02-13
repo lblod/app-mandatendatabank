@@ -1,0 +1,109 @@
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/public> { ?s ?p ?o. }
+}
+WHERE {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    ?s a <http://data.vlaanderen.be/ns/mandaat#Mandaat> ;
+       ?p ?o.
+    VALUES ?p {
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://mu.semte.ch/vocabularies/core/uuid>
+        <http://www.w3.org/ns/org#role>
+    }
+  }
+}
+
+;
+
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/public> { ?s ?p ?o. }
+}
+WHERE {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    ?s a <http://data.vlaanderen.be/ns/besluit#Bestuursorgaan> ;
+       ?p ?o.
+    VALUES ?p {
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://mu.semte.ch/vocabularies/core/uuid>
+        <http://data.vlaanderen.be/ns/mandaat#bindingEinde>
+        <http://data.vlaanderen.be/ns/mandaat#bindingStart>
+        <http://www.w3.org/ns/org#hasPost>
+        <http://data.vlaanderen.be/ns/mandaat#isTijdspecialisatieVan>
+    }
+  }
+}
+
+;
+
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/public> { ?s ?p ?o. }
+}
+WHERE {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    ?s a <http://data.vlaanderen.be/ns/besluit#Bestuursorgaan> ;
+       ?p ?o.
+    VALUES ?p {
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://mu.semte.ch/vocabularies/core/uuid>
+        <http://www.w3.org/2004/02/skos/core#prefLabel>
+        <http://data.vlaanderen.be/ns/besluit#bestuurt>
+        <http://data.vlaanderen.be/ns/besluit#classificatie>
+    }
+  }
+}
+
+;
+
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/public> { ?s ?p ?o. }
+}
+WHERE {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    ?s a <http://data.vlaanderen.be/ns/besluit#Bestuurseenheid> ;
+       ?p ?o.
+    VALUES ?p {
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://mu.semte.ch/vocabularies/core/uuid>
+        <http://www.w3.org/2004/02/skos/core#prefLabel>
+        <http://www.w3.org/2004/02/skos/core#altLabel>
+        <http://data.vlaanderen.be/ns/besluit#classificatie>
+        <http://data.vlaanderen.be/ns/besluit#werkingsgebied>
+    }
+  }
+}
+
+;
+
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/public> { ?s ?p ?o. }
+}
+WHERE {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    ?s a <http://mu.semte.ch/vocabularies/ext/BestuurseenheidClassificatieCode> ;
+       ?p ?o.
+    VALUES ?p {
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://mu.semte.ch/vocabularies/core/uuid>
+        <http://www.w3.org/2004/02/skos/core#prefLabel>
+        <http://www.w3.org/2004/02/skos/core#scopeNote>
+    }
+  }
+}
+
+;
+
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/public> { ?s ?p ?o. }
+}
+WHERE {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    ?s a <http://mu.semte.ch/vocabularies/ext/BestuursorgaanClassificatieCode> ;
+       ?p ?o.
+    VALUES ?p {
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://mu.semte.ch/vocabularies/core/uuid>
+        <http://www.w3.org/2004/02/skos/core#prefLabel>
+        <http://www.w3.org/2004/02/skos/core#scopeNote>
+    }
+  }
+}
