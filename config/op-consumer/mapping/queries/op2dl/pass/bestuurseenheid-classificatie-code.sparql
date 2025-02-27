@@ -1,0 +1,12 @@
+PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX ere: <http://data.lblod.info/vocabularies/erediensten/>
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+CONSTRUCT {
+  ?s ?p ?o.
+} WHERE {
+  ?s a <http://lblod.data.gift/vocabularies/organisatie/BestuurseenheidClassificatieCode>;
+    ?p ?o.
+}

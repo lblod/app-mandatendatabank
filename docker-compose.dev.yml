@@ -32,5 +32,7 @@ services:
     restart: "no"
   mandatendatabank-consumer:
     restart: "no"
+  op-public-consumer:
+    restart: "no"
   deliver-email-service:
     restart: "no"
