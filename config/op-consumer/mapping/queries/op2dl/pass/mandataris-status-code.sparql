@@ -1,0 +1,6 @@
+CONSTRUCT {
+  ?s ?p ?o.
+} WHERE {
+  ?s a <http://lblod.data.gift/vocabularies/organisatie/MandatarisStatusCode>;
+    ?p ?o.
+}
