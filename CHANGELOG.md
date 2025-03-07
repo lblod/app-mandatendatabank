@@ -38,6 +38,29 @@ Then, update `docker-compose.override.yml` to:
 ```
 drc up -d
 ```
+## 1.13.2 (2024-12-17)
+### General
+ - flush data and re-init consumer. It has never been properly deployed
+### Deploy notes
+```
+drc down;
+```
+Update `docker-compose.override.yml` to:
+
+```
+  mandatendatabank-consumer:
+    environment:
+      DCR_SYNC_BASE_URL: "https://loket.lokaalbestuur.vlaanderen.be"
+      DCR_DISABLE_DELTA_INGEST: "false"
+      DCR_DISABLE_INITIAL_SYNC: "false"
+```
+Then:
+```
+drc up -d migrations
+drc up -d database mandatendatabank-consumer
+# Wait until success
+drc up -d
+```
 
 ## 1.13.1 (2024-09-06)
 ### General
@@ -62,7 +85,6 @@ drc up -d database mandatendatabank-consumer
 # Wait until success
 drc up -d
 ```
-
 
 ## 1.13.0 (2024-09-06)
 ### Changes
