@@ -115,7 +115,7 @@ DELETE {
 }
 WHERE {
   GRAPH <http://mu.semte.ch/graphs/public> {
-    ?s a <http://lblod.data.gift/vocabularies/organisatie/BestuursfunctieCode> ;
+    ?s a <http://mu.semte.ch/vocabularies/ext/BestuursfunctieCode> ;
        ?p ?o.
     VALUES ?p {
         <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
