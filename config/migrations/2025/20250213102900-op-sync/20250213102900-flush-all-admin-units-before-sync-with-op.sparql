@@ -107,3 +107,20 @@ WHERE {
     }
   }
 }
+
+;
+
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/public> { ?s ?p ?o. }
+}
+WHERE {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    ?s a <http://lblod.data.gift/vocabularies/organisatie/BestuursfunctieCode> ;
+       ?p ?o.
+    VALUES ?p {
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://mu.semte.ch/vocabularies/core/uuid>
+        <http://www.w3.org/2004/02/skos/core#prefLabel>
+    }
+  }
+}
