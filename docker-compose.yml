@@ -167,7 +167,7 @@ services:
     restart: always
     logging: *default-logging
   mandatendatabank-consumer:
-    image: lblod/delta-consumer:0.0.26
+    image: lblod/delta-consumer:0.1.4
     environment:
       DCR_SYNC_BASE_URL: 'https://loket.lblod.info' # replace with link to Loket API
       DCR_SERVICE_NAME: 'mandatendatabank-consumer'
@@ -189,7 +189,7 @@ services:
       - "logging=true"
     logging: *default-logging
   op-public-consumer:
-    image: lblod/delta-consumer:0.1.0
+    image: lblod/delta-consumer:0.1.4
     environment:
       DCR_SERVICE_NAME: "op-public-consumer"
       DCR_SYNC_BASE_URL: "https://organisaties.abb.lblod.info" # replace with link to OP API
