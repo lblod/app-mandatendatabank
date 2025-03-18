@@ -1,6 +1,7 @@
 # Changelog
 ## Unreleased
 - Sync from OP public [DL-6394]
+- Update op consumer config to avoid accidental deletes
 
 ### Deploy notes
 
