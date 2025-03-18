@@ -1,6 +1,5 @@
 CONSTRUCT {
-  ?s a <http://mu.semte.ch/vocabularies/ext/BestuurseenheidClassificatieCode> ;
-    ?p ?o.
+  ?s ?p ?o.
 } WHERE {
   ?s a <http://lblod.data.gift/vocabularies/organisatie/BestuurseenheidClassificatieCode>;
     ?p ?o.
