@@ -1,0 +1,44 @@
+# Potentially too much data could habe been deleted due to delta-consumer mapping config issues.
+# This migration ensures target graph is in sync again.
+INSERT {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    ?s a <http://mu.semte.ch/vocabularies/ext/MandatarisStatusCode>;
+      ?p ?o.
+  }
+}
+WHERE {
+  GRAPH <http://mu.semte.ch/graphs/landing-zone/op-public> {
+    ?s a <http://lblod.data.gift/vocabularies/organisatie/MandatarisStatusCode>;
+      ?p ?o.
+  }
+}
+
+;
+
+INSERT {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    ?s a <http://mu.semte.ch/vocabularies/ext/BestuurseenheidClassificatieCode>;
+      ?p ?o.
+  }
+}
+WHERE {
+  GRAPH <http://mu.semte.ch/graphs/landing-zone/op-public> {
+    ?s a <http://lblod.data.gift/vocabularies/organisatie/BestuurseenheidClassificatieCode>;
+      ?p ?o.
+  }
+}
+
+;
+
+INSERT {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    ?s a <http://mu.semte.ch/vocabularies/ext/BestuursorgaanClassificatieCode>;
+      ?p ?o.
+  }
+}
+WHERE {
+  GRAPH <http://mu.semte.ch/graphs/landing-zone/op-public> {
+    ?s a <http://lblod.data.gift/vocabularies/organisatie/BestuursorgaanClassificatieCode>;
+      ?p ?o.
+  }
+}
