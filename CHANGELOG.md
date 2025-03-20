@@ -2,6 +2,7 @@
 ## Unreleased
 - Sync from OP public [DL-6394]
 - Update op consumer config to avoid accidental deletes
+- Frontend [v0.14.1](https://github.com/lblod/frontend-mandatendatabank/blob/1ed37a9357269cb360561468e583548da1d7419a/CHANGELOG.md#v0141-2025-03-20)
 
 ### Deploy notes
 
