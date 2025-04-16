@@ -1,4 +1,10 @@
 # Changelog
+## Unreleased
+- Change database from mu-auth to sparql-parser [DL-6562]
+### Deploy notes
+```
+drc up -d database
+```
 ## 1.14.0 (2025-03-24)
 - Sync from OP public [DL-6394]
 - Update op consumer config to avoid accidental deletes
