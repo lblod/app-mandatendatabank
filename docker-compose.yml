@@ -177,6 +177,8 @@ services:
       SLEEP_BETWEEN_BATCHES: 100
       DCR_BATCH_SIZE: 10000 # TODO: this is confusing bit in the API -> refers to the chunks of the read stream of the dumpfile of the intiial sync
       BATCH_SIZE: 10000 # TODO: this is confusing bit in the API -> refers to the chunks of the ingestion in the database
+      SUDO_QUERY_RETRY_FOR_HTTP_STATUS_CODES: "404,500,503"
+      SUDO_QUERY_RETRY: "true"
     restart: always
     labels:
       - "logging=true"
