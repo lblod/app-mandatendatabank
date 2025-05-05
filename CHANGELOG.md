@@ -2,13 +2,14 @@
 ## Unreleased
 - Change database from mu-auth to sparql-parser [DL-6562]
 - Bump virtuoso (required for the sparql-parser)
+- Bump frontend
 
 ### Deploy notes
 #### For upgrading virtuoso
 [This README](https://github.com/Riadabd/upgrade-virtuoso) provides the necessary steps for upgrading the database. **NOTE**: This will involve shutting down the app for small period of time (around 30 minutes).
-#### For the database
+#### For the database and frontend
 ```
-drc up -d database
+drc up -d database mandaten
 ```
 ## 1.14.0 (2025-03-24)
 - Sync from OP public [DL-6394]
