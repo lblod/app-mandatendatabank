@@ -1,5 +1,5 @@
 # Changelog
-## Unreleased
+## 1.15.0 (2025-05-06)
 - Change database from mu-auth to sparql-parser [DL-6562]
 - Bump virtuoso (required for the sparql-parser)
 - Bump frontend
