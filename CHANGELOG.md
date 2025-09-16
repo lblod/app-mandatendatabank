@@ -1,4 +1,10 @@
 # Changelog
+## 1.15.2 (2025-09-16)
+- Remove Werkingsgebieden (and niveaus) that confuses users https://binnenland.atlassian.net/browse/DL-6786
+### Deploy notes
+```
+drc restart migrations op-public-consumer
+```
 ## 1.15.1 (2025-09-03)
 - Bump mandaten-download-generator-service [DL-6768]
 ## 1.15.0 (2025-05-06)

@@ -1,0 +1,17 @@
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    ?s a <http://www.w3.org/ns/prov#Location>;
+      ?p ?o.
+  }
+}
+WHERE {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    ?s a <http://www.w3.org/ns/prov#Location>;
+      ?p ?o;
+      <http://mu.semte.ch/vocabularies/ext/werkingsgebiedNiveau> ?niveau.
+     VALUES ?niveau {
+      "Referentieregio"
+      "Samengesteld werkingsgebied"
+    }
+  }
+}
