@@ -2,5 +2,12 @@ CONSTRUCT {
   ?s ?p ?o.
 } WHERE {
   ?s a <http://www.w3.org/ns/prov#Location>;
-    ?p ?o.
+    ?p ?o;
+     <http://mu.semte.ch/vocabularies/ext/werkingsgebiedNiveau> ?niveau.
+
+  VALUES ?niveau {
+    "Gemeente"
+    "District"
+    "Provincie"
+  }
 }
