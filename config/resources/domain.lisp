@@ -21,5 +21,5 @@
                 (:format :string ,(s-prefix "dct:format"))
                 (:filesize :number ,(s-prefix "nfo:fileSize"))
                 (:created :datetime ,(s-prefix "dct:created")))
-  :resource-base (s-url "http://mu-exporter/exports/")
+  :resource-base (s-url "http://data.lblod.info/id/exports/")
   :on-path "exports")

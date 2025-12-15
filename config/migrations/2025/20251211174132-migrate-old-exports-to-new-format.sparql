@@ -1,0 +1,37 @@
+PREFIX nfo: <http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#>
+PREFIX export-old: <http://mu.semte.ch/vocabularies/ext/export/>
+PREFIX export-new: <http://redpencil.data.gift/vocabularies/exports/>
+
+DELETE {
+  GRAPH ?g {
+    ?export a export-old:Export .
+  }
+}
+INSERT {
+  GRAPH ?g {
+    ?export a export-new:Export .
+  }
+}
+WHERE {
+  GRAPH ?g {
+    ?export a export-old:Export .
+  }
+}
+
+;
+
+DELETE {
+  GRAPH ?g {
+    ?export nfo:filename ?filename .
+  }
+}
+INSERT {
+  GRAPH ?g {
+    ?export nfo:fileName ?filename .
+  }
+}
+WHERE {
+  GRAPH ?g {
+    ?export nfo:filename ?filename .
+  }
+}
