@@ -104,7 +104,7 @@ services:
       - "logging=true"
     logging: *default-logging
   export:
-    image: lblod/mandaten-download-generator-service:1.0.2
+    image: lblod/mandaten-download-generator-service:1.0.4
     environment:
       MU_APPLICATION_GRAPH: "http://mu.semte.ch/graphs/public"
       FILES_GRAPH: "http://mu.semte.ch/graphs/public"
