@@ -24,6 +24,6 @@
 (add-prefix "pav" "http://purl.org/pav/")
 (add-prefix "nfo" "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#")
 (add-prefix "schema" "http://schema.org/")
-(add-prefix "export" "http://mu.semte.ch/vocabularies/ext/export/")
+(add-prefix "export" "http://redpencil.data.gift/vocabularies/exports/")
 (add-prefix "lblodlg" "http://data.lblod.info/vocabularies/leidinggevenden/")
 (add-prefix "sign" "http://mu.semte.ch/vocabularies/ext/signing/")

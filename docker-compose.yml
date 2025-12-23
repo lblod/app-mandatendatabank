@@ -104,12 +104,14 @@ services:
       - "logging=true"
     logging: *default-logging
   export:
-    image: lblod/mandaten-download-generator-service:0.3.9
+    image: lblod/mandaten-download-generator-service:1.0.4
     environment:
       MU_APPLICATION_GRAPH: "http://mu.semte.ch/graphs/public"
+      FILES_GRAPH: "http://mu.semte.ch/graphs/public"
+      JOBS_GRAPH: "http://mu.semte.ch/graphs/public"
       EXPORT_CRON_PATTERN: "0 0 6 * * *"
     volumes:
-      - ./data/exports:/data/exports
+      - ./data/exports:/share/exports
       - ./config/export:/config
     links:
       - virtuoso:database

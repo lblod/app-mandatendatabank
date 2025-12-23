@@ -17,7 +17,7 @@
 
 (define-resource export ()
   :class (s-prefix "export:Export")
-  :properties `((:filename :string ,(s-prefix "nfo:filename"))
+  :properties `((:filename :string ,(s-prefix "nfo:fileName"))
                 (:format :string ,(s-prefix "dct:format"))
                 (:filesize :number ,(s-prefix "nfo:fileSize"))
                 (:created :datetime ,(s-prefix "dct:created")))
