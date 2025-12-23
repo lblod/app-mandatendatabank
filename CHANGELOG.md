@@ -1,4 +1,7 @@
 # Changelog
+## 1.15.3 (2025-12-23)
+- Bump download-generator-service: https://binnenland.atlassian.net/browse/DL-6785
+
 ## 1.15.2 (2025-09-16)
 - Remove Werkingsgebieden (and niveaus) that confuses users https://binnenland.atlassian.net/browse/DL-6786
 ### Deploy notes
