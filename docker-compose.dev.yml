@@ -10,7 +10,7 @@ services:
     restart: "no"
   database:
     restart: "no"
-  delta-notifier:
+  deltanotifier:
     restart: "no"
   virtuoso:
     ports:
