@@ -1,4 +1,17 @@
 # Changelog
+
+## 1.15.4 (2026-03-20)
+
+- Hotfix: Rename delta-notifier to deltanotifier. (There was a mismatch with the service name and the URL used by sparql-parser. Opted to rename the service instead of fixing the URL because Loket also uses the name without hyphen.)
+
+### Deploy instructions
+
+Restart `deltanotifier` and remove `delta-notifier` containers:
+
+```
+drc up -d --remove-orphans deltanotifier
+```
+
 ## 1.15.3 (2025-12-23)
 - Bump download-generator-service: https://binnenland.atlassian.net/browse/DL-6785
 
