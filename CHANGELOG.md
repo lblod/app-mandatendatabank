@@ -1,5 +1,15 @@
 # Changelog
 
+## Unreleased
+
+- Frontend [v0.14.4](https://github.com/lblod/frontend-mandatendatabank/blob/faa33a715352a4503f973ca9b29f90114f6d7e04/CHANGELOG.md#v0144-2026-03-25)
+
+### Deploy instructions
+
+```
+drc up -d mandaten
+```
+
 ## 1.15.4 (2026-03-20)
 
 - Hotfix: Rename delta-notifier to deltanotifier. (There was a mismatch with the service name and the URL used by sparql-parser. Opted to rename the service instead of fixing the URL because Loket also uses the name without hyphen.)
