@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.16.0 (2026-04-15)
 
 - Frontend [v0.14.5](https://github.com/lblod/frontend-mandatendatabank/blob/1d010968452c760320d62e40b261e391120aaac2/CHANGELOG.md#v0145-2026-03-26),[v0.14.4](https://github.com/lblod/frontend-mandatendatabank/blob/faa33a715352a4503f973ca9b29f90114f6d7e04/CHANGELOG.md#v0144-2026-03-25)
 
